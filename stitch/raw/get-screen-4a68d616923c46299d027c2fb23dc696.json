@@ -1,0 +1,28 @@
+{
+  "id": 104,
+  "jsonrpc": "2.0",
+  "result": {
+    "content": [
+      {
+        "text": "{\"name\":\"projects/11940467736549131072/screens/4a68d616923c46299d027c2fb23dc696\",\"title\":\"Mobile Hero - Lucas Santana Portfolio\",\"screenshot\":{\"name\":\"projects/11940467736549131072/files/86435e7c0a334d84aa7ab78734a5b685\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AOfcidU9EndhYr7CecaCEGC0YbunI_RtIfx1LU9Z6uf7AapcnO1bVF1RSSKYl35MFR0rcObWfwBkKmm0xwVdbV_0ILewR9SNRZSORZeaj5icl7tfOB3WZC7DNzGeofwyUtLE-cMoC_mU9ciVRcxugZpFl1RswEvWKcPqGK9Q91CBvfk4yti--f92tvUcMRKr2V_7LINLWeYATYqOMUOhNWCDPV4VzZy-NnPFuBFujO21-6nq_fgwGpoZh8W_q22V\"},\"htmlCode\":{\"name\":\"projects/11940467736549131072/files/07833c8b4f0f4a178d7f133959d6f190\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2ZiMDM0OGQ2NjZkYTQ5YWM5Njg3OTk0ZDNlMTUyMTNhEgsSBxC46M6jkg8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMTk0MDQ2NzczNjU0OTEzMTA3Mg&filename=&opi=96797242\",\"mimeType\":\"text/html\"},\"width\":\"780\",\"height\":\"1768\",\"deviceType\":\"MOBILE\"}",
+        "type": "text"
+      }
+    ],
+    "structuredContent": {
+      "deviceType": "MOBILE",
+      "height": "1768",
+      "htmlCode": {
+        "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2ZiMDM0OGQ2NjZkYTQ5YWM5Njg3OTk0ZDNlMTUyMTNhEgsSBxC46M6jkg8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMTk0MDQ2NzczNjU0OTEzMTA3Mg&filename=&opi=96797242",
+        "mimeType": "text/html",
+        "name": "projects/11940467736549131072/files/07833c8b4f0f4a178d7f133959d6f190"
+      },
+      "name": "projects/11940467736549131072/screens/4a68d616923c46299d027c2fb23dc696",
+      "screenshot": {
+        "downloadUrl": "https://lh3.googleusercontent.com/aida/AOfcidU9EndhYr7CecaCEGC0YbunI_RtIfx1LU9Z6uf7AapcnO1bVF1RSSKYl35MFR0rcObWfwBkKmm0xwVdbV_0ILewR9SNRZSORZeaj5icl7tfOB3WZC7DNzGeofwyUtLE-cMoC_mU9ciVRcxugZpFl1RswEvWKcPqGK9Q91CBvfk4yti--f92tvUcMRKr2V_7LINLWeYATYqOMUOhNWCDPV4VzZy-NnPFuBFujO21-6nq_fgwGpoZh8W_q22V",
+        "name": "projects/11940467736549131072/files/86435e7c0a334d84aa7ab78734a5b685"
+      },
+      "title": "Mobile Hero - Lucas Santana Portfolio",
+      "width": "780"
+    }
+  }
+}

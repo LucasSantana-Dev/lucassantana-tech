@@ -1,0 +1,28 @@
+{
+  "id": 105,
+  "jsonrpc": "2.0",
+  "result": {
+    "content": [
+      {
+        "text": "{\"name\":\"projects/11940467736549131072/screens/ceb8a39945924c56a3731286850ba12f\",\"title\":\"Mobile Metrics & Projects\",\"screenshot\":{\"name\":\"projects/11940467736549131072/files/fc390326db3041128ad5aee1dce57a6c\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AOfcidXTZcaZvmV9ZEjfL4H0VHkidvfFtlFvbpCb567sG53YZmPPcR0YFj1u0CY-PQ0o0PXN7HAy_z_2_DplFlqD6Z55EDRl9knpYV8FzG_lakA7Z64UtB-m0A_sLn6tFfBuYKPLuE-qIePIc4oUo046lhlvrNzTpBOwnDqIiSecea7dwR0o74amecRQ9ABgTf64Lx__t8wTNUYEc6h4nzlsv8yWStAr7o_8RtP_7vjPOaoH_IvntwzHL6lzhf78\"},\"htmlCode\":{\"name\":\"projects/11940467736549131072/files/60af107b830b456f90b8e4789a29a689\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzVmMjNhYzFkODA5NDQwOWJhNDQ1MTQzODUzMGRiOGNkEgsSBxC46M6jkg8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMTk0MDQ2NzczNjU0OTEzMTA3Mg&filename=&opi=96797242\",\"mimeType\":\"text/html\"},\"width\":\"780\",\"height\":\"2390\",\"deviceType\":\"MOBILE\"}",
+        "type": "text"
+      }
+    ],
+    "structuredContent": {
+      "deviceType": "MOBILE",
+      "height": "2390",
+      "htmlCode": {
+        "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzVmMjNhYzFkODA5NDQwOWJhNDQ1MTQzODUzMGRiOGNkEgsSBxC46M6jkg8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMTk0MDQ2NzczNjU0OTEzMTA3Mg&filename=&opi=96797242",
+        "mimeType": "text/html",
+        "name": "projects/11940467736549131072/files/60af107b830b456f90b8e4789a29a689"
+      },
+      "name": "projects/11940467736549131072/screens/ceb8a39945924c56a3731286850ba12f",
+      "screenshot": {
+        "downloadUrl": "https://lh3.googleusercontent.com/aida/AOfcidXTZcaZvmV9ZEjfL4H0VHkidvfFtlFvbpCb567sG53YZmPPcR0YFj1u0CY-PQ0o0PXN7HAy_z_2_DplFlqD6Z55EDRl9knpYV8FzG_lakA7Z64UtB-m0A_sLn6tFfBuYKPLuE-qIePIc4oUo046lhlvrNzTpBOwnDqIiSecea7dwR0o74amecRQ9ABgTf64Lx__t8wTNUYEc6h4nzlsv8yWStAr7o_8RtP_7vjPOaoH_IvntwzHL6lzhf78",
+        "name": "projects/11940467736549131072/files/fc390326db3041128ad5aee1dce57a6c"
+      },
+      "title": "Mobile Metrics & Projects",
+      "width": "780"
+    }
+  }
+}

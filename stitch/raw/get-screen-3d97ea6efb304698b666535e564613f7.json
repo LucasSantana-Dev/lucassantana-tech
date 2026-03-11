@@ -1,0 +1,28 @@
+{
+  "id": 101,
+  "jsonrpc": "2.0",
+  "result": {
+    "content": [
+      {
+        "text": "{\"name\":\"projects/11940467736549131072/screens/3d97ea6efb304698b666535e564613f7\",\"title\":\"Lucas Santana Portfolio - Hero Section\",\"screenshot\":{\"name\":\"projects/11940467736549131072/files/1e87b062fd1945b99e287265b4279cb6\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AOfcidUcndtewxeIaXa1cJtw6EZVLqihP0Kz37Gu2ioVM66wucFaaafzP-zXxsYtQ-xd3vczxJXq4igoS0WEOGpS3MkqkVjPcCxB7cPanY82v28_J1ur-GEzgUYyIOnsBsvK-maEKVmW2l5i2xbOnEcwUH-EbPIy64f-PjGagymQxRH8JRT0jSGBLuqAOGj8lVSK2ClrT0vKAxMmTmGy0NsAThJmubZIQFVBpv7GAfLd2AQWUSUSsH-e0iKgc64\"},\"htmlCode\":{\"name\":\"projects/11940467736549131072/files/c6225723dcd64c78840b7b7bd1f467a6\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzZhZWZiNGNlY2Q5NzQ5Nzg5MzJlN2ZiMmY0ZWVkOTNiEgsSBxC46M6jkg8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMTk0MDQ2NzczNjU0OTEzMTA3Mg&filename=&opi=96797242\",\"mimeType\":\"text/html\"},\"width\":\"2560\",\"height\":\"2048\",\"deviceType\":\"DESKTOP\"}",
+        "type": "text"
+      }
+    ],
+    "structuredContent": {
+      "deviceType": "DESKTOP",
+      "height": "2048",
+      "htmlCode": {
+        "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzZhZWZiNGNlY2Q5NzQ5Nzg5MzJlN2ZiMmY0ZWVkOTNiEgsSBxC46M6jkg8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMTk0MDQ2NzczNjU0OTEzMTA3Mg&filename=&opi=96797242",
+        "mimeType": "text/html",
+        "name": "projects/11940467736549131072/files/c6225723dcd64c78840b7b7bd1f467a6"
+      },
+      "name": "projects/11940467736549131072/screens/3d97ea6efb304698b666535e564613f7",
+      "screenshot": {
+        "downloadUrl": "https://lh3.googleusercontent.com/aida/AOfcidUcndtewxeIaXa1cJtw6EZVLqihP0Kz37Gu2ioVM66wucFaaafzP-zXxsYtQ-xd3vczxJXq4igoS0WEOGpS3MkqkVjPcCxB7cPanY82v28_J1ur-GEzgUYyIOnsBsvK-maEKVmW2l5i2xbOnEcwUH-EbPIy64f-PjGagymQxRH8JRT0jSGBLuqAOGj8lVSK2ClrT0vKAxMmTmGy0NsAThJmubZIQFVBpv7GAfLd2AQWUSUSsH-e0iKgc64",
+        "name": "projects/11940467736549131072/files/1e87b062fd1945b99e287265b4279cb6"
+      },
+      "title": "Lucas Santana Portfolio - Hero Section",
+      "width": "2560"
+    }
+  }
+}

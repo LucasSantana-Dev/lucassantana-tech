@@ -1,0 +1,464 @@
+.app-shell {
+  position: relative;
+  overflow: clip;
+}
+
+.bg-mesh {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background: linear-gradient(135deg, rgba(62, 199, 231, 0.08), transparent 50%),
+    linear-gradient(315deg, rgba(248, 182, 74, 0.11), transparent 45%);
+  pointer-events: none;
+}
+
+.noise {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  opacity: 0.26;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 0.45px, transparent 0.45px);
+  background-size: 3px 3px;
+  pointer-events: none;
+}
+
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: min(1100px, calc(100% - 2.5rem));
+  margin: 1rem auto 1.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(5, 10, 16, 0.78);
+  backdrop-filter: blur(10px);
+}
+
+.top-nav .brand {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.top-nav ul {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.top-nav ul a {
+  color: var(--text-1);
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+.top-nav ul a:hover {
+  color: var(--cyan);
+}
+
+.hero {
+  width: min(1100px, calc(100% - 2.5rem));
+  margin: 2rem auto 0;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.kicker {
+  color: var(--cyan);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.76rem;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  margin-bottom: 0.45rem;
+}
+
+.hero h2 {
+  color: var(--text-1);
+  font-weight: 500;
+  font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  margin-bottom: 1.3rem;
+}
+
+.hero-summary {
+  max-width: 60ch;
+  color: var(--text-1);
+  line-height: 1.7;
+  font-size: 1.03rem;
+  margin-bottom: 1.2rem;
+}
+
+.hero-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.hero-stack li {
+  font-size: 0.84rem;
+  padding: 0.34rem 0.62rem;
+  border-radius: 999px;
+  border: 1px solid rgba(83, 126, 165, 0.45);
+  color: #d0e9ff;
+  background: rgba(21, 39, 59, 0.6);
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.hero-image {
+  margin: 0;
+  border-radius: 1.6rem;
+  padding: 0.65rem;
+  border: 1px solid rgba(97, 146, 191, 0.35);
+  background: linear-gradient(155deg, rgba(16, 30, 45, 0.9), rgba(10, 18, 28, 0.88));
+  box-shadow: var(--shadow);
+}
+
+.hero-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 1.2rem;
+}
+
+#impact h2,
+#projects h2,
+#deep-dives h2,
+#experience h2,
+#skills h2,
+#contact h2 {
+  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+  margin-bottom: 1.1rem;
+}
+
+.metric-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.metric-card {
+  border: 1px solid var(--line);
+  background: var(--surface-0);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.metric-card h3 {
+  font-size: 0.98rem;
+  margin-bottom: 0.4rem;
+}
+
+.metric-card p {
+  color: var(--text-1);
+  line-height: 1.6;
+  font-size: 0.91rem;
+}
+
+.metric-card small {
+  margin-top: 0.7rem;
+  display: block;
+  color: var(--amber);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+}
+
+.metric-value {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  color: var(--mint);
+}
+
+.metric-value span {
+  font-size: 0.9rem;
+  color: #d1ecff;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.project-card {
+  border-radius: 1rem;
+  border: 1px solid rgba(87, 128, 170, 0.45);
+  background: var(--surface-1);
+  padding: 1rem;
+  min-height: 100%;
+}
+
+.project-org {
+  color: var(--amber);
+  font-size: 0.74rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.project-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.project-card > p {
+  color: var(--text-1);
+  line-height: 1.6;
+  margin-bottom: 0.85rem;
+}
+
+.pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.pill-list li {
+  font-size: 0.74rem;
+  padding: 0.28rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(89, 123, 154, 0.4);
+  color: #b9d6ec;
+}
+
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.project-links a,
+.contact-links a,
+.dive-card a {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.project-links a:hover,
+.contact-links a:hover,
+.dive-card a:hover {
+  border-color: currentColor;
+}
+
+.pinned-case {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 1.4rem;
+  align-items: start;
+}
+
+.sticky-block {
+  position: sticky;
+  top: 7.2rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  padding: 1rem;
+  background: rgba(12, 20, 31, 0.9);
+}
+
+.sticky-block p {
+  color: var(--text-1);
+  line-height: 1.65;
+}
+
+.dive-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.dive-card {
+  border: 1px solid rgba(86, 125, 160, 0.4);
+  border-radius: 1rem;
+  background: rgba(10, 17, 27, 0.78);
+  padding: 1rem;
+}
+
+.dive-card header p {
+  color: var(--cyan);
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.dive-card header h3 {
+  margin-bottom: 0.9rem;
+}
+
+.dive-card h4 {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.86rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--amber);
+  margin-bottom: 0.5rem;
+}
+
+.dive-card ul {
+  margin-bottom: 0.9rem;
+  display: grid;
+  gap: 0.52rem;
+}
+
+.dive-card li {
+  color: var(--text-1);
+  line-height: 1.5;
+}
+
+.timeline {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.timeline li {
+  border: 1px solid rgba(86, 126, 167, 0.38);
+  border-radius: 1rem;
+  padding: 1rem;
+  background: rgba(11, 19, 30, 0.75);
+}
+
+.timeline-period {
+  margin-bottom: 0.42rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  color: var(--cyan);
+  text-transform: uppercase;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.timeline h3 {
+  margin-bottom: 0.25rem;
+}
+
+.timeline h4 {
+  font-family: "Manrope", sans-serif;
+  margin-bottom: 0.8rem;
+  color: var(--amber);
+}
+
+.timeline ul {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.timeline ul li {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-1);
+  line-height: 1.55;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.skills-grid li {
+  border: 1px solid rgba(77, 118, 157, 0.4);
+  border-radius: 999px;
+  padding: 0.45rem 0.68rem;
+  background: rgba(16, 27, 41, 0.6);
+  color: #d4e9fa;
+  text-align: center;
+}
+
+.contact {
+  text-align: left;
+  border: 1px solid rgba(91, 137, 182, 0.38);
+  border-radius: 1rem;
+  background: rgba(12, 22, 34, 0.75);
+  padding: 1.2rem;
+}
+
+.contact > p {
+  color: var(--text-1);
+  line-height: 1.6;
+  margin-bottom: 0.95rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.site-footer {
+  width: min(1100px, calc(100% - 2.5rem));
+  margin: 0 auto 2.2rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(87, 123, 157, 0.35);
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-1);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+  .hero,
+  .pinned-case {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-grid,
+  .project-grid,
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sticky-block {
+    position: static;
+  }
+}
+
+@media (max-width: 680px) {
+  .top-nav {
+    border-radius: 1rem;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .top-nav ul {
+    flex-wrap: wrap;
+    gap: 0.85rem;
+  }
+
+  .metric-grid,
+  .project-grid,
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    width: min(1100px, calc(100% - 1.25rem));
+  }
+
+  .hero {
+    width: min(1100px, calc(100% - 1.25rem));
+  }
+
+  .site-footer {
+    width: min(1100px, calc(100% - 1.25rem));
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

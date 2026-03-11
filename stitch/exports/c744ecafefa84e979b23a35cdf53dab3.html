@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lucas Santana - Portfolio - Metrics &amp; Projects</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#fbbf24", // Amber accent
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a", // Graphite base
+                        "surface-dark": "#1e293b",
+                        "surface-darker": "#111827",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["Fira Code", "monospace"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(251, 191, 36, 0.1), 0 8px 10px -6px rgba(251, 191, 36, 0.1);
+        }
+        .project-card:hover .project-details {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen antialiased selection:bg-primary/30">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-8 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-surface-dark px-4 py-6 mb-12">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white group cursor-pointer">
+<div class="size-6 text-primary transition-transform duration-300 group-hover:rotate-12">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-tight">Lucas Santana</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Metrics</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Projects</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Case Study</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+<button class="flex items-center justify-center rounded-lg h-10 px-6 bg-primary text-slate-900 text-sm font-bold tracking-wide hover:bg-amber-300 transition-colors shadow-lg shadow-primary/20">
+                            Resume
+                        </button>
+</div>
+</header>
+<!-- Metrics Section -->
+<section class="mb-20">
+<div class="flex items-center gap-3 px-4 pb-6">
+<span class="material-symbols-outlined text-primary text-3xl">monitoring</span>
+<h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Impact &amp; Metrics</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
+<div class="bento-hover flex flex-col gap-4 rounded-2xl p-8 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 transition-all duration-300 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-center justify-between">
+<p class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Efficiency</p>
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500">bolt</span>
+</div>
+<p class="text-5xl font-bold tracking-tighter text-slate-900 dark:text-white mt-2">40<span class="text-primary text-4xl">%</span></p>
+<p class="text-sm text-slate-600 dark:text-slate-300 font-medium">Workflow Automation</p>
+</div>
+<div class="bento-hover flex flex-col gap-4 rounded-2xl p-8 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 transition-all duration-300 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-center justify-between">
+<p class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Response</p>
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500">timer</span>
+</div>
+<p class="text-5xl font-bold tracking-tighter text-slate-900 dark:text-white mt-2">40<span class="text-primary text-4xl">%</span></p>
+<p class="text-sm text-slate-600 dark:text-slate-300 font-medium">Incident Resolution</p>
+</div>
+<div class="bento-hover flex flex-col gap-4 rounded-2xl p-8 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 transition-all duration-300 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-center justify-between">
+<p class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Reliability</p>
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500">verified_user</span>
+</div>
+<p class="text-5xl font-bold tracking-tighter text-slate-900 dark:text-white mt-2">25<span class="text-primary text-4xl">%</span></p>
+<p class="text-sm text-slate-600 dark:text-slate-300 font-medium">System Uptime Gain</p>
+</div>
+<div class="bento-hover flex flex-col gap-4 rounded-2xl p-8 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 transition-all duration-300 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-center justify-between">
+<p class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Scale</p>
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500">groups</span>
+</div>
+<p class="text-5xl font-bold tracking-tighter text-slate-900 dark:text-white mt-2">100<span class="text-primary text-4xl">k+</span></p>
+<p class="text-sm text-slate-600 dark:text-slate-300 font-medium">MAU Supported</p>
+</div>
+</div>
+</section>
+<!-- Featured Projects -->
+<section class="mb-20">
+<div class="flex items-center gap-3 px-4 pb-8">
+<span class="material-symbols-outlined text-primary text-3xl">code_blocks</span>
+<h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Featured Projects</h2>
+</div>
+<div class="flex flex-col gap-8 p-4">
+<!-- Project 1 -->
+<div class="project-card flex flex-col md:flex-row items-stretch gap-6 rounded-2xl bg-white dark:bg-surface-dark p-6 border border-slate-200 dark:border-slate-800 transition-all duration-500 overflow-hidden relative group hover:border-primary/50">
+<div class="flex flex-[1.5] flex-col justify-between gap-6 relative z-10">
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase">Fintech</span>
+<span class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-surface-darker text-slate-600 dark:text-slate-400 text-xs font-mono">2023</span>
+</div>
+<h3 class="text-2xl font-bold leading-tight text-slate-900 dark:text-white">Project Alpha</h3>
+<p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">Architected a high-performance trading engine capable of processing 10k transactions per second with sub-millisecond latency. Replaced legacy monolithic system with distributed microservices.</p>
+</div>
+<div class="project-details opacity-0 transform translate-y-4 transition-all duration-300 font-mono text-sm text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-surface-darker p-4 rounded-lg border border-slate-100 dark:border-slate-800">
+<p><span class="text-primary">Tech Stack:</span> Go, gRPC, Kafka, PostgreSQL, Kubernetes</p>
+<p class="mt-2"><span class="text-primary">Challenge:</span> Zero-downtime migration of $50M daily volume.</p>
+</div>
+<button class="group/btn flex items-center gap-2 w-fit text-sm font-bold text-slate-900 dark:text-white mt-2 hover:text-primary dark:hover:text-primary transition-colors">
+                                    View Architecture
+                                    <span class="material-symbols-outlined text-lg transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
+</button>
+</div>
+<div class="flex-1 min-h-[240px] rounded-xl bg-slate-100 dark:bg-surface-darker border border-slate-200 dark:border-slate-800 overflow-hidden relative group-hover:shadow-[0_0_30px_rgba(251,191,36,0.15)] transition-shadow duration-500">
+<div class="absolute inset-0 bg-cover bg-center mix-blend-overlay dark:mix-blend-color-dodge opacity-60" data-alt="Abstract glowing network nodes connected by lines on dark background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD63seLOc8Vyid0r_lcSsq4NKUU6XZ7LIJm4ZTfA8pmceuWxT73TQJMe08nkxcyrNgJ0jeUi-YBXBK_WGw7jtNCYp4WSfop8Xq3Im1ki1LMM7uURTJLv-bNn55m3-uTN2tnkk5avxPrWABGmDQWh2b_4j1pavY0Z2QmsVZRrWPrGb4PeWu3VwiBmMQXzRjXl923oXtKr5vdr5rrTMB8ft674UGVBmIGFfYe1WXKkuSg0_dRRs86WGp6yMfuPx7x96IeQGh7VMUNf7d2");'></div>
+<div class="absolute inset-0 bg-gradient-to-tr from-background-dark/80 via-transparent to-primary/20"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Deep Dive Teaser -->
+<section class="mb-12 p-4">
+<div class="relative w-full rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-surface-darker">
+<div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-luminosity grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Wide cinematic view of complex glowing data connections representing architecture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC_IdBlottUKl2kg40y_Bg-_B3sR5IvzkZ6lUc-ZUhyZ8TfbqXqFgQ7fV2pNo2AhgeeJE9owCl4p7oQLPdoAzQmtlRTek5euyL7PEduzL59ITjvnkZRti0l192ale1O4nI1xlSJYpa5aZk1Tnjd0a-OkGVSnIS_mr_15V4MBvlMERHJ5YLeW6CDLLKxAc12REIXYYCDbCMPBm1Pr-FFLVYXDuSD-0ORzWBOnYu46OuclX-1_rKlfuwcYyi4wPE7agtHJ4CcPYTKr5N_");'></div>
+<div class="absolute inset-0 bg-gradient-to-r from-background-dark via-background-dark/80 to-transparent"></div>
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 p-10 md:p-16">
+<div class="flex-1 flex flex-col gap-4 max-w-xl">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">search</span>
+<p class="text-primary text-sm font-bold tracking-widest uppercase">Deep Dive Case Study</p>
+</div>
+<h2 class="text-3xl md:text-4xl font-bold leading-tight text-white">Scaling to 100k Concurrent Users</h2>
+<p class="text-slate-300 text-lg leading-relaxed font-light">An in-depth look at the architectural decisions, bottlenecks, and solutions implemented to achieve a 99.99% uptime during peak loads.</p>
+</div>
+<button class="flex shrink-0 items-center justify-center rounded-xl h-14 px-8 bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-slate-900 text-base font-bold tracking-wide transition-all duration-300">
+                                Read Full Case Study
+                            </button>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</body></html>

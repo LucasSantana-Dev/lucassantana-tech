@@ -1,0 +1,28 @@
+{
+  "id": 106,
+  "jsonrpc": "2.0",
+  "result": {
+    "content": [
+      {
+        "text": "{\"name\":\"projects/11940467736549131072/screens/20b243dfb78b4a1090884aa53d2dab8b\",\"title\":\"Mobile Experience & Contact\",\"screenshot\":{\"name\":\"projects/11940467736549131072/files/c9c5b37e9ec74d62ac3bf1d5f23f14b5\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AOfcidUUGdE9_tVC5zm_o5z3AV8xgXY-q7WFToO5Dwbod8XQAqjiwv5u6w2H1NraNMVFk2Z4N6TcUq51b1iMh6obTmpGfBP2ArJ36UHxRT_uNa1EJSJeeYOtQLszSHfsyiENQsms4ipeSp9Q9Dx9LlU7EvvtlQ3m4WDIunyeJgbuFDBmy8TBX1SlXu2hpPueDBZdKNdza-I0Viy3qVZ0rF3U73_xG5KY7WSWb_3KD-eAXcbeToa4JsTTorFEndTS\"},\"htmlCode\":{\"name\":\"projects/11940467736549131072/files/6b3adaadc55c41bfbf41b475f8b55b89\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzdmNjgxOWVkMzM0MzQ4MmE5NTUwNmQwOWRhMzg5YWYwEgsSBxC46M6jkg8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMTk0MDQ2NzczNjU0OTEzMTA3Mg&filename=&opi=96797242\",\"mimeType\":\"text/html\"},\"width\":\"780\",\"height\":\"2522\",\"deviceType\":\"MOBILE\"}",
+        "type": "text"
+      }
+    ],
+    "structuredContent": {
+      "deviceType": "MOBILE",
+      "height": "2522",
+      "htmlCode": {
+        "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzdmNjgxOWVkMzM0MzQ4MmE5NTUwNmQwOWRhMzg5YWYwEgsSBxC46M6jkg8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMTk0MDQ2NzczNjU0OTEzMTA3Mg&filename=&opi=96797242",
+        "mimeType": "text/html",
+        "name": "projects/11940467736549131072/files/6b3adaadc55c41bfbf41b475f8b55b89"
+      },
+      "name": "projects/11940467736549131072/screens/20b243dfb78b4a1090884aa53d2dab8b",
+      "screenshot": {
+        "downloadUrl": "https://lh3.googleusercontent.com/aida/AOfcidUUGdE9_tVC5zm_o5z3AV8xgXY-q7WFToO5Dwbod8XQAqjiwv5u6w2H1NraNMVFk2Z4N6TcUq51b1iMh6obTmpGfBP2ArJ36UHxRT_uNa1EJSJeeYOtQLszSHfsyiENQsms4ipeSp9Q9Dx9LlU7EvvtlQ3m4WDIunyeJgbuFDBmy8TBX1SlXu2hpPueDBZdKNdza-I0Viy3qVZ0rF3U73_xG5KY7WSWb_3KD-eAXcbeToa4JsTTorFEndTS",
+        "name": "projects/11940467736549131072/files/c9c5b37e9ec74d62ac3bf1d5f23f14b5"
+      },
+      "title": "Mobile Experience & Contact",
+      "width": "780"
+    }
+  }
+}

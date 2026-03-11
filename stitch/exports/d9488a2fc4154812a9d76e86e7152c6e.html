@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portfolio - Experience &amp; Contact</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0dccf2",
+                        "accent": "#f59e0b",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#101f22",
+                        "surface-light": "#e0e7e9",
+                        "surface-dark": "#1a2c30",
+                        "surface-hover-dark": "#23393d",
+                        "border-dark": "#2c454a",
+                        "text-muted-dark": "#9cb5ba"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Space Grotesk", sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Header -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-border-dark px-10 py-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center gap-4">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight">Lucas Santana</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-sm font-medium leading-normal text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors" href="#">Work</a>
+<a class="text-sm font-medium leading-normal text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors" href="#">Skills</a>
+<a class="text-sm font-medium leading-normal text-primary" href="#">Experience</a>
+<a class="text-sm font-medium leading-normal text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-5 bg-primary text-background-dark text-sm font-bold leading-normal tracking-wide hover:bg-primary/90 transition-colors shadow-[0_0_15px_rgba(13,204,242,0.3)]">
+<span class="truncate">Download Resume</span>
+</button>
+</div>
+</header>
+<main class="flex-1 max-w-5xl mx-auto w-full px-6 py-16 flex flex-col gap-24">
+<!-- Experience Timeline -->
+<section class="flex flex-col gap-10">
+<div class="flex flex-col gap-4">
+<h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-tight">Experience Timeline</h2>
+<p class="text-slate-600 dark:text-text-muted-dark text-lg max-w-2xl">A professional journey focused on building scalable systems and leading technical teams.</p>
+</div>
+<div class="relative pl-4 md:pl-0">
+<!-- Timeline Line -->
+<div class="absolute left-6 md:left-[19px] top-2 bottom-2 w-0.5 bg-border-dark hidden md:block"></div>
+<!-- Timeline Items -->
+<div class="flex flex-col gap-12">
+<!-- Item 1 -->
+<div class="relative flex flex-col md:flex-row gap-6 md:gap-12 group">
+<!-- Indicator -->
+<div class="hidden md:flex flex-col items-center z-10 w-10 shrink-0">
+<div class="size-10 rounded-full bg-surface-dark border-2 border-primary flex items-center justify-center shadow-[0_0_15px_rgba(13,204,242,0.4)] transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/10">
+<span class="material-symbols-outlined text-primary text-xl">work</span>
+</div>
+</div>
+<!-- Content -->
+<div class="flex-1 bg-surface-light dark:bg-surface-dark rounded-2xl p-6 md:p-8 border border-slate-200 dark:border-border-dark transition-all duration-300 hover:border-primary/50 dark:hover:bg-surface-hover-dark relative overflow-hidden">
+<!-- Mobile Indicator -->
+<div class="absolute top-6 right-6 md:hidden">
+<span class="material-symbols-outlined text-primary">work</span>
+</div>
+<div class="flex flex-col gap-2 mb-4">
+<div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+<h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-slate-100">Senior Software Engineer</h3>
+<span class="text-primary font-medium text-lg">TechNova</span>
+</div>
+<p class="text-slate-500 dark:text-accent font-medium tracking-wide text-sm uppercase">2021 - Present</p>
+</div>
+<ul class="flex flex-col gap-3 text-slate-600 dark:text-slate-300">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-sm mt-1 shrink-0">arrow_right</span>
+<span>Architected and led the migration of a monolithic legacy application to a microservices architecture, improving system scalability by 40%.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-sm mt-1 shrink-0">arrow_right</span>
+<span>Mentored a team of 5 junior and mid-level engineers, establishing code review standards and CI/CD best practices.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-sm mt-1 shrink-0">arrow_right</span>
+<span>Optimized database queries and implemented caching strategies, reducing average response times by 300ms.</span>
+</li>
+</ul>
+<div class="mt-6 flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-background-dark text-xs font-medium text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-border-dark">React</span>
+<span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-background-dark text-xs font-medium text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-border-dark">Node.js</span>
+<span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-background-dark text-xs font-medium text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-border-dark">AWS</span>
+<span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-background-dark text-xs font-medium text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-border-dark">Kubernetes</span>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="relative flex flex-col md:flex-row gap-6 md:gap-12 group">
+<!-- Indicator -->
+<div class="hidden md:flex flex-col items-center z-10 w-10 shrink-0 mt-2">
+<div class="size-8 rounded-full bg-surface-dark border-2 border-border-dark flex items-center justify-center transition-all duration-300 group-hover:border-accent group-hover:scale-110">
+<div class="size-2 rounded-full bg-accent"></div>
+</div>
+</div>
+<!-- Content -->
+<div class="flex-1 bg-surface-light dark:bg-surface-dark rounded-2xl p-6 md:p-8 border border-slate-200 dark:border-border-dark transition-all duration-300 hover:border-accent/50 dark:hover:bg-surface-hover-dark opacity-90 hover:opacity-100">
+<div class="flex flex-col gap-2 mb-4">
+<div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+<h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-slate-100">Software Engineer</h3>
+<span class="text-accent font-medium text-lg">DataSphere</span>
+</div>
+<p class="text-slate-500 dark:text-text-muted-dark font-medium tracking-wide text-sm uppercase">2018 - 2021</p>
+</div>
+<ul class="flex flex-col gap-3 text-slate-600 dark:text-slate-300">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-accent text-sm mt-1 shrink-0">arrow_right</span>
+<span>Developed and maintained RESTful APIs serving over 1M daily requests with 99.9% uptime.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-accent text-sm mt-1 shrink-0">arrow_right</span>
+<span>Implemented automated testing frameworks that increased code coverage from 45% to 85%.</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="relative flex flex-col md:flex-row gap-6 md:gap-12 group">
+<!-- Indicator -->
+<div class="hidden md:flex flex-col items-center z-10 w-10 shrink-0 mt-2">
+<div class="size-8 rounded-full bg-surface-dark border-2 border-border-dark flex items-center justify-center transition-all duration-300 group-hover:border-slate-400 group-hover:scale-110">
+<div class="size-2 rounded-full bg-slate-400"></div>
+</div>
+</div>
+<!-- Content -->
+<div class="flex-1 bg-surface-light dark:bg-surface-dark rounded-2xl p-6 md:p-8 border border-slate-200 dark:border-border-dark transition-all duration-300 hover:border-slate-500/50 dark:hover:bg-surface-hover-dark opacity-80 hover:opacity-100">
+<div class="flex flex-col gap-2 mb-4">
+<div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+<h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-slate-100">Junior Developer</h3>
+<span class="text-slate-500 dark:text-slate-400 font-medium text-lg">CodeCraft</span>
+</div>
+<p class="text-slate-500 dark:text-text-muted-dark font-medium tracking-wide text-sm uppercase">2016 - 2018</p>
+</div>
+<ul class="flex flex-col gap-3 text-slate-600 dark:text-slate-300">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-slate-400 text-sm mt-1 shrink-0">arrow_right</span>
+<span>Assisted in the development of client-facing dashboards using React and Redux.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-slate-400 text-sm mt-1 shrink-0">arrow_right</span>
+<span>Collaborated with designers to implement responsive, pixel-perfect UI components.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact CTA Section -->
+<section class="relative rounded-3xl overflow-hidden mt-12 bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-border-dark">
+<!-- Radial Glow Background -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-2xl opacity-20 dark:opacity-30 pointer-events-none" style="background: radial-gradient(circle, rgba(245,158,11,0.5) 0%, rgba(16,31,34,0) 70%);"></div>
+<div class="relative z-10 flex flex-col items-center justify-center gap-8 px-6 py-20 md:py-32 text-center">
+<div class="flex flex-col gap-4 items-center">
+<span class="px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-bold uppercase tracking-widest mb-2 border border-accent/20">Available for hire</span>
+<h1 class="text-slate-900 dark:text-slate-100 text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight max-w-3xl">
+                            Let's Build Something <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Exceptional</span>
+</h1>
+<p class="text-slate-600 dark:text-slate-300 text-lg md:text-xl font-normal leading-relaxed max-w-2xl mt-2">
+                            Currently open to new opportunities. Reach out to discuss how we can work together to solve complex problems.
+                        </p>
+</div>
+<div class="w-full max-w-md mt-4 flex flex-col gap-4">
+<form class="flex w-full flex-col sm:flex-row items-stretch rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-border-dark focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden text-slate-900 dark:text-slate-100 bg-white dark:bg-background-dark border-none focus:ring-0 focus:outline-none h-14 px-5 placeholder:text-slate-400 dark:placeholder:text-text-muted-dark text-base" placeholder="Enter your email address" required="" type="email"/>
+<button class="flex shrink-0 cursor-pointer items-center justify-center h-14 px-6 bg-primary text-background-dark text-base font-bold leading-normal tracking-wide hover:bg-primary/90 transition-colors" type="submit">
+<span class="truncate mr-2">Get in Touch</span>
+<span class="material-symbols-outlined text-xl">send</span>
+</button>
+</form>
+<p class="text-sm text-slate-500 dark:text-text-muted-dark">Or email me directly at <a class="text-primary hover:underline" href="mailto:hello@lucassantana.dev">hello@lucassantana.dev</a></p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="border-t border-slate-200 dark:border-border-dark bg-background-light dark:bg-background-dark mt-auto">
+<div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 px-6 py-10">
+<div class="flex items-center gap-3">
+<div class="size-5 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<p class="text-slate-500 dark:text-text-muted-dark text-sm font-medium">© 2023 Lucas Santana. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-6">
+<a class="text-slate-500 dark:text-text-muted-dark hover:text-primary dark:hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="text-sm font-medium">LinkedIn</span>
+<span class="material-symbols-outlined text-lg">open_in_new</span>
+</a>
+<a class="text-slate-500 dark:text-text-muted-dark hover:text-primary dark:hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="text-sm font-medium">GitHub</span>
+<span class="material-symbols-outlined text-lg">code</span>
+</a>
+<a class="text-slate-500 dark:text-text-muted-dark hover:text-primary dark:hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="text-sm font-medium">Twitter</span>
+<span class="material-symbols-outlined text-lg">chat</span>
+</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

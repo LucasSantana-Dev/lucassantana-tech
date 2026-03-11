@@ -1,0 +1,28 @@
+{
+  "id": 102,
+  "jsonrpc": "2.0",
+  "result": {
+    "content": [
+      {
+        "text": "{\"name\":\"projects/11940467736549131072/screens/c744ecafefa84e979b23a35cdf53dab3\",\"title\":\"Portfolio - Metrics & Projects\",\"screenshot\":{\"name\":\"projects/11940467736549131072/files/fea7eed86f95484ea762fcb7e6a3a89c\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AOfcidXfMQc4O68L-p_NsxzwysypTW1jsdlaUfU4gXi9SJZYV0IId-LchGUeAh3t3UP0iX9QG4zKCTVmIRBnj-u0aAZQS2CzICkV1sytbm3nHFG1eycRbrTPPZyBKTmeLkaCSTybPA8LW1vws5JnnIp3bC4pQIXGaLVXqwJA5LtECRCxU2c5gjJ8zpO-bkfFz-qM42FXDsH9gkFJsr-0lwmZoVA9VL_qkP_09hKjKaxhDizTcWbzZlz5gwHzjgY\"},\"htmlCode\":{\"name\":\"projects/11940467736549131072/files/4355af060d684fbc962ec936b6016241\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzViZGE1YmQ5Yjg3YTRkM2VhMzRjNTQ0MDAyMzBhYzczEgsSBxC46M6jkg8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMTk0MDQ2NzczNjU0OTEzMTA3Mg&filename=&opi=96797242\",\"mimeType\":\"text/html\"},\"width\":\"2560\",\"height\":\"3118\",\"deviceType\":\"DESKTOP\"}",
+        "type": "text"
+      }
+    ],
+    "structuredContent": {
+      "deviceType": "DESKTOP",
+      "height": "3118",
+      "htmlCode": {
+        "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzViZGE1YmQ5Yjg3YTRkM2VhMzRjNTQ0MDAyMzBhYzczEgsSBxC46M6jkg8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMTk0MDQ2NzczNjU0OTEzMTA3Mg&filename=&opi=96797242",
+        "mimeType": "text/html",
+        "name": "projects/11940467736549131072/files/4355af060d684fbc962ec936b6016241"
+      },
+      "name": "projects/11940467736549131072/screens/c744ecafefa84e979b23a35cdf53dab3",
+      "screenshot": {
+        "downloadUrl": "https://lh3.googleusercontent.com/aida/AOfcidXfMQc4O68L-p_NsxzwysypTW1jsdlaUfU4gXi9SJZYV0IId-LchGUeAh3t3UP0iX9QG4zKCTVmIRBnj-u0aAZQS2CzICkV1sytbm3nHFG1eycRbrTPPZyBKTmeLkaCSTybPA8LW1vws5JnnIp3bC4pQIXGaLVXqwJA5LtECRCxU2c5gjJ8zpO-bkfFz-qM42FXDsH9gkFJsr-0lwmZoVA9VL_qkP_09hKjKaxhDizTcWbzZlz5gwHzjgY",
+        "name": "projects/11940467736549131072/files/fea7eed86f95484ea762fcb7e6a3a89c"
+      },
+      "title": "Portfolio - Metrics & Projects",
+      "width": "2560"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": 103,
+  "jsonrpc": "2.0",
+  "result": {
+    "content": [
+      {
+        "text": "{\"name\":\"projects/11940467736549131072/screens/d9488a2fc4154812a9d76e86e7152c6e\",\"title\":\"Portfolio - Experience & Contact\",\"screenshot\":{\"name\":\"projects/11940467736549131072/files/80df189729904b12a4afdf6920ac9bda\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AOfcidV62Q17iSnDsOWbT4Ft9tkH1q5CMT__QCkzCVGUQqbCgbreDjLsD8XHvilaUKmRdE5mfsFFQ_gi9_JYIcunSlvdBaNjeeTjp9DsL7hOJS3zcYoTxogga9c8Z478bJtGBG_mBw6bEoWGPDHZupEtgr8yfY9rUFCoXqmIW0EBH3XjCqhNcs-uFgh6RnY0JeGzvf1RlCBvMPj34GsKIbDSROOuDOpqsP6CA4PigXlH7TB-4-cpTmlG45sM-i_a\"},\"htmlCode\":{\"name\":\"projects/11940467736549131072/files/c80675185c4d4f9c90a509ed5b908b1b\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2ZlZDcyODFhZTg4NjQwOTJhNzE2ZmU3MTQ5ZDNjODE2EgsSBxC46M6jkg8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMTk0MDQ2NzczNjU0OTEzMTA3Mg&filename=&opi=96797242\",\"mimeType\":\"text/html\"},\"width\":\"2560\",\"height\":\"4248\",\"deviceType\":\"DESKTOP\"}",
+        "type": "text"
+      }
+    ],
+    "structuredContent": {
+      "deviceType": "DESKTOP",
+      "height": "4248",
+      "htmlCode": {
+        "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2ZlZDcyODFhZTg4NjQwOTJhNzE2ZmU3MTQ5ZDNjODE2EgsSBxC46M6jkg8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMTk0MDQ2NzczNjU0OTEzMTA3Mg&filename=&opi=96797242",
+        "mimeType": "text/html",
+        "name": "projects/11940467736549131072/files/c80675185c4d4f9c90a509ed5b908b1b"
+      },
+      "name": "projects/11940467736549131072/screens/d9488a2fc4154812a9d76e86e7152c6e",
+      "screenshot": {
+        "downloadUrl": "https://lh3.googleusercontent.com/aida/AOfcidV62Q17iSnDsOWbT4Ft9tkH1q5CMT__QCkzCVGUQqbCgbreDjLsD8XHvilaUKmRdE5mfsFFQ_gi9_JYIcunSlvdBaNjeeTjp9DsL7hOJS3zcYoTxogga9c8Z478bJtGBG_mBw6bEoWGPDHZupEtgr8yfY9rUFCoXqmIW0EBH3XjCqhNcs-uFgh6RnY0JeGzvf1RlCBvMPj34GsKIbDSROOuDOpqsP6CA4PigXlH7TB-4-cpTmlG45sM-i_a",
+        "name": "projects/11940467736549131072/files/80df189729904b12a4afdf6920ac9bda"
+      },
+      "title": "Portfolio - Experience & Contact",
+      "width": "2560"
+    }
+  }
+}

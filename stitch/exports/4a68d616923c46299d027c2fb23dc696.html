@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lucas Santana Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0dccf2",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#101f22",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"],
+                        "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen relative overflow-x-hidden antialiased">
+<div class="absolute inset-0 bg-noise pointer-events-none z-0 mix-blend-overlay"></div>
+<div class="relative z-10 flex h-auto min-h-screen w-full flex-col max-w-md mx-auto shadow-2xl bg-background-light dark:bg-background-dark">
+<!-- Top Nav (from component, modified for context) -->
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="flex size-12 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl">menu</span>
+</div>
+<div class="flex items-center justify-end">
+<p class="text-primary text-base font-bold leading-normal tracking-wide shrink-0 uppercase text-xs">Contact</p>
+</div>
+</div>
+<!-- Main Hero Content -->
+<div class="flex flex-1 flex-col items-center justify-center p-6 pb-24 @container">
+<div class="flex w-full flex-col gap-8 items-center">
+<!-- Profile Image with Amber Glow -->
+<div class="relative">
+<div class="absolute inset-0 rounded-full shadow-[0_0_30px_rgba(255,191,0,0.4)] pointer-events-none"></div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-40 w-40 ring-2 ring-primary/30 relative z-10" data-alt="Lucas Santana profile portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBb7kIWHwtnICiaxtwFvWPtKATULJ7sky69VVlNaJIkaw5cc9d6Nt1di22nPPkxrUd7b0BhRcyi84k56xQPdnZLnj6L8ZiOrKeRxiNMkC6m3P1UG5Yvbl3fLhcxlixZkllnICj7QOa_qnRBxJIgGrLmMWrjfn8FsGrr7pzAV_hKlTs60G25TR4gMoh97hhmw-65UUcTtGCDBEtttaDNOvYApZcnD8hENSfN3a0QGz4j0acUXpGAq7kic5JCibXlt6IlFFffLskr0z5-");'></div>
+</div>
+<div class="flex flex-col items-center justify-center text-center gap-2">
+<h1 class="text-primary text-5xl font-bold leading-tight tracking-tight font-display">Lucas Santana</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm uppercase tracking-widest font-mono font-medium">Senior Software Engineer</p>
+</div>
+<div class="flex flex-col gap-4 w-full px-4 pt-4">
+<button class="flex items-center justify-center overflow-hidden rounded-xl h-14 px-6 bg-primary text-background-dark text-base font-bold leading-normal tracking-wide w-full shadow-[0_0_20px_rgba(13,204,242,0.4)] transition-transform hover:scale-105">
+<span class="material-symbols-outlined mr-2">download</span>
+<span class="truncate">Download Resume</span>
+</button>
+<button class="flex items-center justify-center overflow-hidden rounded-xl h-14 px-6 bg-primary/10 border border-primary/30 text-primary text-base font-bold leading-normal tracking-wide w-full">
+<span class="material-symbols-outlined mr-2">mail</span>
+<span class="truncate">Get in Touch</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Nav -->
+<div class="fixed bottom-0 left-0 right-0 max-w-md mx-auto z-50">
+<div class="flex gap-2 border-t border-primary/20 bg-background-dark/95 backdrop-blur-sm px-4 pb-6 pt-3">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">home</span>
+</div>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">person</span>
+</div>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">work</span>
+</div>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">mail</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+</body></html>
