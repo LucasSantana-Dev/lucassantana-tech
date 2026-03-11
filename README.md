@@ -1,7 +1,7 @@
 # lucassantana.tech Digital Business Card
 
 Business-card-first personal hub for [lucassantana.tech](https://lucassantana.tech), built with
-React + TypeScript and deployed on Cloudflare Pages.
+React + TypeScript and deployed with Vercel automation plus Cloudflare Pages fallback workflows.
 
 ## Highlights
 
@@ -78,20 +78,25 @@ Pipelines are defined in:
   - `Quality Gates`: `lint`, `typecheck`, `test:run`, `build`
   - `Dependency Audit`: `npm audit --audit-level=high`
 
-### CD workflow (Cloudflare Pages)
+### CD workflow (Vercel, primary)
 
 - PR preview deploys on pull requests targeting `main`
 - Production deploys on push to `main`
 - Manual production deploy available via `workflow_dispatch`
 - PR preview URL is posted back as a PR comment
-- If your trunk branch is not `main`, update workflow branch filters accordingly
+
+### CD workflow (Cloudflare Pages, fallback/manual)
+
+- PR preview deploys on pull requests targeting `main`
+- Production deploy is manual-only via `workflow_dispatch` on `main`
+- PR preview URL is posted back as a PR comment
 
 ### Required repository secrets
 
 Configure in GitHub repository settings:
 
 - `CLOUDFLARE_API_TOKEN` (Pages write scope)
-- `CLOUDFLARE_ACCOUNT_ID` (`712118840109d834d5e99925fd172432`)
+- `CLOUDFLARE_ACCOUNT_ID` (`<CLOUDFLARE_ACCOUNT_ID>`)
 - `VERCEL_TOKEN` (token from Vercel account settings)
 - `VERCEL_ORG_ID` (`team_i0KXJ8eY30h0mlXo1IxZe2mI`)
 - `VERCEL_PROJECT_ID` (`prj_3NBVHR7IAZ5KUuc3Oc8j36OhEkYu`)

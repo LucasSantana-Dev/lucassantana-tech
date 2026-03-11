@@ -12,7 +12,7 @@
   --amber: #a78bfa;
   --mint: #6d28d9;
   --shadow: 0 28px 90px rgba(0, 0, 0, 0.58);
-  --font-reading: "Inter", sans-serif;
+  --font-reading: Inter, sans-serif;
   --glass-border: rgba(182, 196, 223, 0.26);
   --glass-inner: rgba(255, 255, 255, 0.18);
   --glass-bg-0: rgba(24, 28, 40, 0.54);
@@ -39,7 +39,7 @@ body {
   margin: 0;
   min-width: 320px;
   color: var(--text-0);
-  font-family: "Inter", sans-serif;
+  font-family: Inter, sans-serif;
   background: radial-gradient(80vw 80vh at 90% -10%, rgba(139, 92, 246, 0.22) 0%, transparent 65%),
     radial-gradient(70vw 60vh at -20% 20%, rgba(109, 40, 217, 0.18) 0%, transparent 68%),
     var(--bg-0);

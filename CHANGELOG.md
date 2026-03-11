@@ -7,8 +7,13 @@
     production deploys on `main`
   - Added GitHub Actions secrets: `VERCEL_TOKEN`, `VERCEL_ORG_ID`,
     `VERCEL_PROJECT_ID`
-- Added Cloudflare deploy workflow guards to skip jobs when Cloudflare deploy
-  secrets are missing
+- Refined deployment workflow behavior:
+  - Cloudflare production deploy changed to manual-only (`workflow_dispatch` on
+    `main`) to avoid dual production deploys with Vercel
+  - Added missing-secret guards in Cloudflare and Vercel workflows
+  - Added fork-safe preview conditions and upserted PR preview comments
+  - Hardened Vercel preview URL parsing (`--no-color` + regex extraction)
+- Added explicit GitHub Actions token permissions for CI (`contents: read`)
 - Set `CLOUDFLARE_ACCOUNT_ID` GitHub Actions secret for repository deploy
   workflows
 - Updated content typography from serif to sans-serif:
