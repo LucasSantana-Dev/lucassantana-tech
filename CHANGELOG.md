@@ -7,6 +7,8 @@
     production deploys on `main`
   - Added GitHub Actions secrets: `VERCEL_TOKEN`, `VERCEL_ORG_ID`,
     `VERCEL_PROJECT_ID`
+  - Disabled Vercel native Git deployment triggers (`createDeployments: disabled`)
+    to avoid redundant provider checks and rely on GitHub Actions deploy workflows
 - Refined deployment workflow behavior:
   - Cloudflare production deploy changed to manual-only (`workflow_dispatch` on
     `main`) to avoid dual production deploys with Vercel
