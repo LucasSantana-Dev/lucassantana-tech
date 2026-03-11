@@ -11,3 +11,8 @@
 - Added tests for content integrity, reduced-motion animation logic, render behavior,
   and accessibility baseline
 - Added Cloudflare Pages deployment configuration (`wrangler.toml` + deploy scripts)
+- Refreshed portfolio visual system with a Stitch v2 concept pass and exported artifacts in `stitch/v2`
+- Upgraded animation stack from `framer-motion` to `motion` (`motion/react`) with:
+  scroll progress rail, hero parallax, pinned deep-dive progress, and directional section choreography
+- Reworked major sections (hero, nav, projects, deep dives, timeline, skills, contact) for a more
+  editorial neo-dark aesthetic and stronger mobile composition

@@ -6,16 +6,16 @@ React + TypeScript and deployed on Cloudflare Pages.
 ## Highlights
 
 - Neo-dark cinematic visual direction (graphite + cyan + amber)
-- Purposeful motion system with reduced-motion fallbacks
+- Motion.dev animation system with reduced-motion fallbacks
 - Typed content contracts for profile, projects, metrics, and experience
 - SEO + JSON-LD (`Person`, `WebSite`, `SoftwareSourceCode`)
-- Stitch-assisted UI pipeline with exported design artifacts
+- Stitch-assisted UI pipeline with v1 + v2 exported design artifacts
 
 ## Tech Stack
 
 - React 19 + TypeScript
 - Vite 7
-- Framer Motion
+- Motion (`motion/react`)
 - React Helmet Async
 - Vitest + Testing Library + vitest-axe
 - ESLint 9
@@ -69,6 +69,9 @@ Stitch artifacts used during implementation:
 
 - Baseline project: `projects/14150866373996469001`
 - Portfolio project: `projects/11940467736549131072`
+- Portfolio motion refresh project: `projects/15115657045286706662`
 - Exported files: `stitch/exports/`
+- Motion refresh exports: `stitch/v2/exports/`
 - Metadata manifest: `stitch/screen-manifest.json`
+- Motion refresh manifest: `stitch/v2/screen-manifest.json`
 - Design system summary: [DESIGN.md](/Users/lucassantana/Desenvolvimento/portfolio/DESIGN.md)

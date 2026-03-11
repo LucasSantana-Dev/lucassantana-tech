@@ -6,7 +6,9 @@ import { FeaturedProjects } from "./components/FeaturedProjects";
 import { Hero } from "./components/Hero";
 import { ImpactStrip } from "./components/ImpactStrip";
 import { NavBar } from "./components/NavBar";
+import { ScrollProgress } from "./components/ScrollProgress";
 import { Seo } from "./components/Seo";
+import { SignalMarquee } from "./components/SignalMarquee";
 import { SiteFooter } from "./components/SiteFooter";
 import { SkillsMap } from "./components/SkillsMap";
 import { experiences, profile, projects, skills } from "./data/content";
@@ -19,11 +21,13 @@ function App() {
     <>
       <Seo profile={profile} projects={projects} />
       <div className="app-shell">
+        <ScrollProgress />
         <div className="bg-mesh" aria-hidden="true" />
         <div className="noise" aria-hidden="true" />
         <NavBar profile={profile} />
         <main>
           <Hero profile={profile} />
+          <SignalMarquee />
           <ImpactStrip metrics={profile.stats} />
           <FeaturedProjects projects={featuredProjects} />
           <DeepDives projects={deepDiveProjects} />

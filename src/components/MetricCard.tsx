@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useInView, useReducedMotion } from "framer-motion";
+import { useInView, useReducedMotion } from "motion/react";
 import type { Metric } from "../types/content";
 import { useCountUp } from "../hooks/useCountUp";
 

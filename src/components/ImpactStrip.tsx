@@ -14,8 +14,13 @@ export const ImpactStrip = ({ metrics }: ImpactStripProps) => {
         <h2 id="impact-title">Metrics from shipped systems, not mock projects</h2>
       </Reveal>
       <div className="metric-grid">
-        {metrics.map((metric) => (
-          <Reveal key={metric.label} axis="x" distance={18}>
+        {metrics.map((metric, index) => (
+          <Reveal
+            key={metric.label}
+            axis="x"
+            distance={index % 2 === 0 ? -20 : 20}
+            delay={index * 0.05}
+          >
             <MetricCard metric={metric} />
           </Reveal>
         ))}

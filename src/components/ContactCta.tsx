@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import type { Profile } from "../types/content";
 import { Reveal } from "./Reveal";
 
@@ -16,20 +17,33 @@ export const ContactCta = ({ profile }: ContactCtaProps) => {
           and real delivery impact.
         </p>
       </Reveal>
-      <Reveal axis="x" distance={18}>
-        <div className="contact-links">
-          <a href={`mailto:${profile.email}`}>Email</a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer">
+      <div className="contact-links">
+        <Reveal axis="x" distance={16} delay={0.02}>
+          <motion.a href={`mailto:${profile.email}`} whileHover={{ y: -2 }}>
+            Email
+          </motion.a>
+        </Reveal>
+        <Reveal axis="x" distance={16} delay={0.06}>
+          <motion.a href={profile.linkedin} target="_blank" rel="noreferrer" whileHover={{ y: -2 }}>
             LinkedIn
-          </a>
-          <a href={profile.github} target="_blank" rel="noreferrer">
+          </motion.a>
+        </Reveal>
+        <Reveal axis="x" distance={16} delay={0.1}>
+          <motion.a href={profile.github} target="_blank" rel="noreferrer" whileHover={{ y: -2 }}>
             GitHub
-          </a>
-          <a href="/CV_LucasSantana_Dev(EN).pdf" target="_blank" rel="noreferrer">
+          </motion.a>
+        </Reveal>
+        <Reveal axis="x" distance={16} delay={0.14}>
+          <motion.a
+            href="/CV_LucasSantana_Dev(EN).pdf"
+            target="_blank"
+            rel="noreferrer"
+            whileHover={{ y: -2 }}
+          >
             Resume
-          </a>
-        </div>
-      </Reveal>
+          </motion.a>
+        </Reveal>
+      </div>
     </section>
   );
 };

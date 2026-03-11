@@ -1,50 +1,60 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 import type { Profile } from "../types/content";
 
 type HeroProps = {
   profile: Profile;
 };
 
-const cardMotion = {
-  hidden: { opacity: 0, y: 24 },
+const heroMotion = {
+  hidden: { opacity: 0, y: 28 },
   show: (delay: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay, duration: 0.55, ease: "easeOut" as const },
+    transition: { delay, duration: 0.65, ease: "easeOut" as const },
   }),
 };
 
 export const Hero = ({ profile }: HeroProps) => {
   const reduced = useReducedMotion();
-  const animate = reduced ? { opacity: 1 } : "show";
+  const rootRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: rootRef,
+    offset: ["start start", "end start"],
+  });
+  const plateY = useTransform(scrollYProgress, [0, 1], ["0%", "14%"]);
+  const glowScale = useTransform(scrollYProgress, [0, 1], [1, 1.28]);
+  const imageY = reduced ? 0 : plateY;
 
   return (
-    <header className="hero" id="top">
-      <motion.div initial="hidden" animate={animate} className="hero-copy">
-        <motion.p className="kicker" variants={cardMotion} custom={0.05}>
+    <header className="hero" id="top" ref={rootRef}>
+      <motion.div initial="hidden" animate={reduced ? undefined : "show"} className="hero-copy">
+        <motion.p className="kicker" variants={heroMotion} custom={0.05}>
           Senior Engineer • Full Stack • Platform & Product
         </motion.p>
-        <motion.h1 variants={cardMotion} custom={0.1}>
-          {profile.name}
+        <motion.h1 variants={heroMotion} custom={0.1}>
+          <span>{profile.name.split(" ")[0]}</span> {profile.name.split(" ").slice(1).join(" ")}
         </motion.h1>
-        <motion.h2 variants={cardMotion} custom={0.15}>
+        <motion.h2 variants={heroMotion} custom={0.15}>
           {profile.role}
         </motion.h2>
-        <motion.p className="hero-summary" variants={cardMotion} custom={0.2}>
+        <motion.p className="hero-summary" variants={heroMotion} custom={0.2}>
           {profile.summary}
         </motion.p>
-        <motion.ul className="hero-stack" variants={cardMotion} custom={0.25}>
+        <motion.div className="hero-actions" variants={heroMotion} custom={0.25}>
+          <a href="/CV_LucasSantana_Dev(EN).pdf" target="_blank" rel="noreferrer">
+            Download resume
+          </a>
+          <a href="#projects">View projects</a>
+        </motion.div>
+        <motion.ul className="hero-stack" variants={heroMotion} custom={0.3}>
           {profile.stack.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </motion.ul>
       </motion.div>
-      <motion.figure
-        className="hero-image"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: reduced ? 0 : 0.7, ease: "easeOut" }}
-      >
+      <motion.figure className="hero-image" style={{ y: imageY }}>
+        <motion.div className="hero-glow" style={{ scale: reduced ? 1 : glowScale }} />
         <img src={profile.heroImage} alt="Lucas Santana portrait" loading="eager" />
       </motion.figure>
     </header>
