@@ -2,6 +2,14 @@
 
 ## 2026-03-11
 
+- Implemented GitHub Actions CI/CD pipeline set:
+  - Added `ci.yml` for push/PR quality gates (`lint`, `typecheck`, `test:run`, `build`)
+  - Added dependency security audit gate (`npm audit --audit-level=high`)
+  - Added `deploy-cloudflare-pages.yml` with:
+    - PR preview deployments to Cloudflare Pages and automatic PR URL comment
+    - production deployment on `main` push
+    - manual production deployment via `workflow_dispatch`
+- Documented CI/CD workflows and required Cloudflare secrets in `README.md`
 - Refactored navbar from pill-heavy style to editorial/professional style:
   - Decoupled nav controls from global `ui-action`/`ui-action-chip` classes
   - Reworked top bar with sharper radius, clearer border hierarchy, and restrained hover behavior

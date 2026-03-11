@@ -62,6 +62,36 @@ npm run build
 npm audit --audit-level=high
 ```
 
+## CI/CD (GitHub Actions)
+
+Pipelines are defined in:
+
+- `.github/workflows/ci.yml`
+- `.github/workflows/deploy-cloudflare-pages.yml`
+
+### CI workflow
+
+- Trigger: push (`main`, `feature/**`, `fix/**`, `refactor/**`, `chore/**`, `ci/**`, `docs/**`)
+  and pull requests targeting `main`
+- Jobs:
+  - `Quality Gates`: `lint`, `typecheck`, `test:run`, `build`
+  - `Dependency Audit`: `npm audit --audit-level=high`
+
+### CD workflow (Cloudflare Pages)
+
+- PR preview deploys on pull requests targeting `main`
+- Production deploys on push to `main`
+- Manual production deploy available via `workflow_dispatch`
+- PR preview URL is posted back as a PR comment
+- If your trunk branch is not `main`, update workflow branch filters accordingly
+
+### Required repository secrets
+
+Configure in GitHub repository settings:
+
+- `CLOUDFLARE_API_TOKEN` (Pages write scope)
+- `CLOUDFLARE_ACCOUNT_ID` (`712118840109d834d5e99925fd172432`)
+
 ## Audit Snapshot (Local, Mar 11, 2026)
 
 - Lighthouse mobile: Performance `98`, Accessibility `100`, Best Practices `100`, SEO `100`
