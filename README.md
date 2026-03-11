@@ -101,6 +101,10 @@ Configure in GitHub repository settings:
 - `VERCEL_ORG_ID` (`team_i0KXJ8eY30h0mlXo1IxZe2mI`)
 - `VERCEL_PROJECT_ID` (`prj_3NBVHR7IAZ5KUuc3Oc8j36OhEkYu`)
 
+Both deploy workflows validate tokens with `wrangler whoami` and `vercel whoami` before
+attempting deploy steps. If secrets are missing or invalid, preview jobs skip cleanly and post
+a status comment instead of failing.
+
 ## Audit Snapshot (Local, Mar 11, 2026)
 
 - Lighthouse mobile: Performance `98`, Accessibility `100`, Best Practices `100`, SEO `100`
