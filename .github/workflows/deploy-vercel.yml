@@ -89,7 +89,7 @@ jobs:
           DEPLOY_EXIT=$?
           set -e
           if [ "$DEPLOY_EXIT" -ne 0 ]; then
-            if echo "$OUTPUT" | grep -Eiq 'rate limit|too many requests|retry in|limit exceeded'; then
+            if echo "$OUTPUT" | grep -Eiq 'rate limit|too many requests|retry in|limit exceeded|resource is limited|api-deployments-free-per-day'; then
               echo "::notice::Vercel preview deploy skipped due provider rate limit."
               echo "skipped=true" >> "$GITHUB_OUTPUT"
               exit 0
