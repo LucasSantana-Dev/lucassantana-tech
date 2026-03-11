@@ -1,12 +1,12 @@
 # lucassantana.tech Digital Business Card
 
 Business-card-first personal hub for [lucassantana.tech](https://lucassantana.tech), built with
-React + TypeScript and deployed on Cloudflare Pages.
+React + TypeScript and deployed with Vercel automation plus Cloudflare Pages fallback workflows.
 
 ## Highlights
 
 - Neo-dark cinematic visual direction (graphite + Forge Space purple tones)
-- Forge Space brand tokens (Sora / DM Sans / IBM Plex Mono and purple palette)
+- Forge Space brand tokens (Sora / Inter / IBM Plex Mono and purple palette)
 - Motion.dev animation system with reduced-motion fallbacks
 - Three.js node-field ambiance (desktop-first, lazy-loaded, mobile fallback)
 - High-contrast pill/button interaction system with action chips and strong keyboard focus states
@@ -61,6 +61,52 @@ npm run test:run
 npm run build
 npm audit --audit-level=high
 ```
+
+## CI/CD (GitHub Actions)
+
+Pipelines are defined in:
+
+- `.github/workflows/ci.yml`
+- `.github/workflows/deploy-cloudflare-pages.yml`
+- `.github/workflows/deploy-vercel.yml`
+
+### CI workflow
+
+- Trigger: push (`main`, `feature/**`, `fix/**`, `refactor/**`, `chore/**`, `ci/**`, `docs/**`)
+  and pull requests targeting `main`
+- Jobs:
+  - `Quality Gates`: `lint`, `typecheck`, `test:run`, `build`
+  - `Dependency Audit`: `npm audit --audit-level=high`
+
+### CD workflow (Vercel, primary)
+
+- PR preview deploys on pull requests targeting `main`
+- Production deploys on push to `main`
+- Manual production deploy available via `workflow_dispatch`
+- PR preview URL is posted back as a PR comment
+- Native Vercel Git deployment triggers are disabled and the project Git link is removed;
+  deploys run only via GitHub Actions
+
+### CD workflow (Cloudflare Pages, fallback/manual)
+
+- PR preview deploys on pull requests targeting `main`
+- Production deploy is manual-only via `workflow_dispatch` on `main`
+- PR preview URL is posted back as a PR comment
+
+### Required repository secrets
+
+Configure in GitHub repository settings:
+
+- `CLOUDFLARE_API_TOKEN` (Pages write scope)
+- `CLOUDFLARE_ACCOUNT_ID` (`<CLOUDFLARE_ACCOUNT_ID>`)
+- `VERCEL_TOKEN` (token from Vercel account settings)
+- `VERCEL_ORG_ID` (`<VERCEL_ORG_ID>`)
+- `VERCEL_PROJECT_ID` (`<VERCEL_PROJECT_ID>`)
+
+Both deploy workflows validate tokens with `wrangler whoami` and `vercel whoami` before
+attempting deploy steps. If secrets are missing or invalid, preview jobs skip cleanly and post
+a status comment instead of failing. Vercel preview jobs also handle provider rate-limit responses
+as non-blocking skips for PR checks.
 
 ## Audit Snapshot (Local, Mar 11, 2026)
 

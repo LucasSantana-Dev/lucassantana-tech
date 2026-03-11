@@ -2,6 +2,44 @@
 
 ## 2026-03-11
 
+- Configured Vercel automated deployment:
+  - Added `.github/workflows/deploy-vercel.yml` for PR preview deploys and
+    production deploys on `main`
+  - Added GitHub Actions secrets: `VERCEL_TOKEN`, `VERCEL_ORG_ID`,
+    `VERCEL_PROJECT_ID`
+  - Disabled Vercel native Git deployment triggers (`createDeployments: disabled`)
+    to avoid redundant provider checks and rely on GitHub Actions deploy workflows
+  - Unlinked Vercel project from GitHub repo to stop native `Vercel` status checks
+    and keep deployment ownership fully in GitHub Actions
+- Refined deployment workflow behavior:
+  - Cloudflare production deploy changed to manual-only (`workflow_dispatch` on
+    `main`) to avoid dual production deploys with Vercel
+  - Added missing-secret guards in Cloudflare and Vercel workflows
+  - Added token-validity checks (`wrangler whoami` / `vercel whoami`) so invalid
+    deploy credentials skip gracefully instead of failing deployment steps
+  - Updated Vercel preview deploy to treat provider rate-limit responses as a
+    non-blocking skip with PR comment upsert instead of workflow failure
+  - Updated Vercel production deploy to fail fast when credentials are missing
+    or invalid instead of reporting a green skipped deploy
+  - Scoped `pull-requests: write` permission to Vercel preview job only
+  - Added fork-safe preview conditions and upserted PR preview comments
+  - Hardened Vercel preview URL parsing (`--no-color` + regex extraction)
+- Replaced README examples of `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID` with
+  placeholder values
+- Added explicit GitHub Actions token permissions for CI (`contents: read`)
+- Set `CLOUDFLARE_ACCOUNT_ID` GitHub Actions secret for repository deploy
+  workflows
+- Updated content typography from serif to sans-serif:
+  - Replaced `Source Serif 4` reading treatment with `Inter`
+  - Switched body/base font stack from `DM Sans` to `Inter`
+  - Removed deferred reading-font runtime loader
+- Implemented GitHub Actions CI/CD pipeline set:
+  - Added `ci.yml` for push/PR quality gates (`lint`, `typecheck`, `test:run`, `build`)
+  - Added dependency security audit gate (`npm audit --audit-level=high`)
+  - Added `deploy-cloudflare-pages.yml` with:
+    - PR preview deployments to Cloudflare Pages and automatic PR URL comment
+    - manual production deployment via `workflow_dispatch` on `main`
+- Documented CI/CD workflows and required Cloudflare secrets in `README.md`
 - Refactored navbar from pill-heavy style to editorial/professional style:
   - Decoupled nav controls from global `ui-action`/`ui-action-chip` classes
   - Reworked top bar with sharper radius, clearer border hierarchy, and restrained hover behavior
