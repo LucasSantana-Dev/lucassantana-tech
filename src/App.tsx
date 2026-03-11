@@ -1,22 +1,62 @@
 import "./App.css";
-import { ContactCta } from "./components/ContactCta";
-import { DeepDives } from "./components/DeepDives";
-import { ExperienceTimeline } from "./components/ExperienceTimeline";
+import { lazy, Suspense, useEffect, useState } from "react";
+import { AboutIdentity } from "./components/AboutIdentity";
+import { DeferredSection } from "./components/DeferredSection";
 import { FeaturedProjects } from "./components/FeaturedProjects";
 import { Hero } from "./components/Hero";
-import { ImpactStrip } from "./components/ImpactStrip";
+import { MoreDetails } from "./components/MoreDetails";
 import { NavBar } from "./components/NavBar";
+import { NowFocus } from "./components/NowFocus";
 import { ScrollProgress } from "./components/ScrollProgress";
 import { Seo } from "./components/Seo";
-import { SignalMarquee } from "./components/SignalMarquee";
 import { SiteFooter } from "./components/SiteFooter";
-import { SkillsMap } from "./components/SkillsMap";
-import { experiences, profile, projects, skills } from "./data/content";
+import { nowItems, profile, projects } from "./data/coreContent";
+import { loadReadingFont } from "./lib/loadReadingFont";
 
-const deepDiveProjects = projects.filter((project) => project.deepDive);
 const featuredProjects = projects.filter((project) => project.featured);
+const LazySkillsSection = lazy(async () => {
+  const section = await import("./sections/SkillsSection");
+  return { default: section.SkillsSection };
+});
+const LazyContactSection = lazy(async () => {
+  const section = await import("./sections/ContactSection");
+  return { default: section.ContactSection };
+});
+const LazyMoreDetailsContent = lazy(async () => {
+  const section = await import("./sections/MoreDetailsContent");
+  return { default: section.MoreDetailsContent };
+});
 
 function App() {
+  const [showMoreDetails, setShowMoreDetails] = useState(false);
+
+  useEffect(() => {
+    const about = document.getElementById("about");
+    if (!about || typeof IntersectionObserver === "undefined") {
+      void loadReadingFont();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          void loadReadingFont();
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 },
+    );
+
+    observer.observe(about);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (showMoreDetails) {
+      void loadReadingFont();
+    }
+  }, [showMoreDetails]);
+
   return (
     <>
       <Seo profile={profile} projects={projects} />
@@ -27,13 +67,30 @@ function App() {
         <NavBar profile={profile} />
         <main>
           <Hero profile={profile} />
-          <SignalMarquee />
-          <ImpactStrip metrics={profile.stats} />
+          <AboutIdentity profile={profile} />
+          <NowFocus items={nowItems} />
           <FeaturedProjects projects={featuredProjects} />
-          <DeepDives projects={deepDiveProjects} />
-          <ExperienceTimeline experiences={experiences} />
-          <SkillsMap skills={skills} />
-          <ContactCta profile={profile} />
+          <DeferredSection id="skills" rootMargin="320px 0px" placeholderHeight={1200}>
+            <Suspense fallback={<div className="deferred-section-loader" aria-hidden="true" />}>
+              <LazySkillsSection sectionId={undefined} className="deferred-section-inner" as="div" />
+            </Suspense>
+          </DeferredSection>
+          <DeferredSection id="contact" rootMargin="280px 0px" placeholderHeight={420}>
+            <Suspense fallback={<div className="deferred-section-loader" aria-hidden="true" />}>
+              <LazyContactSection sectionId={undefined} className="deferred-section-inner" as="div" />
+            </Suspense>
+          </DeferredSection>
+          <MoreDetails
+            expanded={showMoreDetails}
+            onToggle={() => {
+              setShowMoreDetails((current) => !current);
+            }}
+          />
+          {showMoreDetails ? (
+            <Suspense fallback={<div id="details-content" className="details-content-loader" aria-hidden="true" />}>
+              <LazyMoreDetailsContent />
+            </Suspense>
+          ) : null}
         </main>
         <SiteFooter profile={profile} />
       </div>

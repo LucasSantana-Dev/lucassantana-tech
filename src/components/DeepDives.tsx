@@ -1,5 +1,6 @@
 import { motion, useScroll, useSpring } from "motion/react";
 import { useRef } from "react";
+import { getActionVisual } from "../lib/brandAssets";
 import type { Project } from "../types/content";
 import { Reveal } from "./Reveal";
 
@@ -13,9 +14,11 @@ type DiveCardProps = {
 };
 
 const DiveCard = ({ project, index }: DiveCardProps) => {
+  const repositoryVisual = getActionVisual("Repository", project.repoUrl);
+
   return (
     <Reveal axis="y" distance={24 + index * 10} delay={index * 0.05}>
-      <motion.article className="dive-card" whileHover={{ y: -4 }}>
+      <motion.article className="dive-card glass-card" whileHover={{ y: -4 }}>
         <header>
           <p>{project.category}</p>
           <h3>{project.name}</h3>
@@ -32,8 +35,21 @@ const DiveCard = ({ project, index }: DiveCardProps) => {
             <li key={item}>{item}</li>
           ))}
         </ul>
-        <a href={project.repoUrl} target="_blank" rel="noreferrer">
-          Open {project.organization}/{project.name}
+        <a
+          className="ui-action ui-action-chip ui-action-secondary"
+          href={project.repoUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <repositoryVisual.Icon
+            className="ui-action-symbol"
+            aria-hidden="true"
+            color={repositoryVisual.color}
+          />
+          <span>Repository</span>
+          <span className="ui-action-icon" aria-hidden="true">
+            ↗
+          </span>
         </a>
       </motion.article>
     </Reveal>
@@ -52,7 +68,7 @@ export const DeepDives = ({ projects }: DeepDivesProps) => {
       aria-labelledby="deep-dives-title"
       ref={rootRef}
     >
-      <div className="sticky-block">
+      <div className="sticky-block glass-card">
         <span className="dive-progress-track" aria-hidden="true">
           <motion.span className="dive-progress-fill" style={{ scaleY: progress }} />
         </span>

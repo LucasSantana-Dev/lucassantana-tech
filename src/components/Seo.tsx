@@ -7,12 +7,12 @@ type SeoProps = {
 };
 
 const description =
-  "Senior Software Engineer portfolio focused on full-stack delivery, platform architecture, " +
-  "and measurable production impact across AI-enabled systems.";
+  "Digital business card of Lucas Santana: senior full-stack engineer focused on platform " +
+  "architecture, product delivery, community, and measurable outcomes.";
 
 const twitterDescription =
-  "Portfolio of Lucas Santana: product delivery, platform architecture, and AI governance " +
-  "engineering with quantified outcomes.";
+  "Business-card hub for Lucas Santana with relevant projects, current focus, volunteering, and " +
+  "direct contact via email, LinkedIn, GitHub, and Discord.";
 
 const asSourceCode = (project: Project) => {
   return {
@@ -33,13 +33,13 @@ export const Seo = ({ profile, projects }: SeoProps) => {
         name: profile.name,
         jobTitle: profile.role,
         url: profile.website,
-        sameAs: [profile.linkedin, profile.github],
+        sameAs: [profile.linkedin, profile.github, profile.discord],
         email: profile.email,
         image: `${profile.website}${profile.heroImage}`,
       },
       {
         "@type": "WebSite",
-        name: `${profile.name} Portfolio`,
+        name: `${profile.name} Digital Business Card`,
         url: profile.website,
       },
       ...projects.slice(0, 3).map(asSourceCode),
@@ -48,18 +48,18 @@ export const Seo = ({ profile, projects }: SeoProps) => {
 
   return (
     <Helmet>
-      <title>Lucas Santana | Senior Software Engineer</title>
+      <title>Lucas Santana | Digital Business Card</title>
       <meta name="description" content={description} />
-      <meta property="og:title" content="Lucas Santana | Senior Software Engineer" />
+      <meta property="og:title" content="Lucas Santana | Digital Business Card" />
       <meta
         property="og:description"
-        content="Full-stack and platform engineering portfolio featuring Forge Space and Lucky."
+        content="Senior full-stack engineer digital hub with relevant projects, current focus, and contact channels."
       />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={profile.website} />
       <meta property="og:image" content={`${profile.website}${profile.heroImage}`} />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Lucas Santana | Senior Software Engineer" />
+      <meta name="twitter:title" content="Lucas Santana | Digital Business Card" />
       <meta name="twitter:description" content={twitterDescription} />
       <link rel="canonical" href={profile.website} />
       <script type="application/ld+json">{JSON.stringify(graph)}</script>

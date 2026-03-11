@@ -1,20 +1,19 @@
-import { useRef } from "react";
-import { useInView, useReducedMotion } from "motion/react";
+import { useReducedMotion } from "motion/react";
 import type { Metric } from "../types/content";
 import { useCountUp } from "../hooks/useCountUp";
 
 type MetricCardProps = {
   metric: Metric;
+  started: boolean;
+  delayMs: number;
 };
 
-export const MetricCard = ({ metric }: MetricCardProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-20% 0px" });
+export const MetricCard = ({ metric, started, delayMs }: MetricCardProps) => {
   const reduced = useReducedMotion();
-  const count = useCountUp(metric.value, inView, Boolean(reduced));
+  const count = useCountUp(metric.value, started, Boolean(reduced), 1200, delayMs);
 
   return (
-    <article className="metric-card" ref={ref}>
+    <article className="metric-card glass-card">
       <p className="metric-value">
         {count}
         <span>{metric.suffix}</span>

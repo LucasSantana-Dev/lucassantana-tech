@@ -23,17 +23,15 @@ Reference lineage:
 - **Graphite Deep Base (`#05070B`)**: Primary canvas for dark cinematic depth.
 - **Midnight Surface (`#0B1018`)**: Main card and section backdrop.
 - **Slate Tech Layer (`#101928`)**: Secondary layer for contrast separation.
-- **Signal Cyan (`#3EC7E7`)**: Navigation hover, links, and active technical cues.
-- **Achievement Amber (`#F8B64A`)**: Labels, metadata, timeline highlights.
-- **Trust Mint (`#75F0D2`)**: Metric numbers and positive performance emphasis.
-- **Electric Cyan Core (`#1FE3FF`)**: Motion accents, progress rails, and key CTA gradients.
-- **Warm Amber Core (`#FFB020`)**: Counterbalance for timeline, tags, and conversion elements.
+- **Forge Purple (`#8B5CF6`)**: Primary interaction and motion accent.
+- **Forge Purple Light (`#A78BFA`)**: Secondary highlight and gradient support.
+- **Forge Purple Dark (`#6D28D9`)**: Pressed/active depth and contrast anchor.
 - **Readable Primary (`#ECF3FF`)**: Headline and core text.
 - **Readable Secondary (`#9FB6CD`)**: Supporting copy and contextual text.
 
 ## 3. Typography Rules
-- **Display Headline:** Bricolage Grotesque, heavy weights (700-800), tight leading.
-- **Body/UI:** Manrope, medium legibility for dense engineering narrative.
+- **Display Headline:** Sora, heavy weights (700-800), tight leading.
+- **Body/UI:** DM Sans, medium legibility for dense engineering narrative.
 - **Technical Labels:** IBM Plex Mono for tags, sources, and metadata rails.
 - Strong hierarchy through size and weight first; color is secondary support.
 

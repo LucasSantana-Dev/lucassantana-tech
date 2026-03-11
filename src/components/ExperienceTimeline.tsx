@@ -1,5 +1,5 @@
 import { motion, useScroll, useSpring } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import type { ExperienceItem } from "../types/content";
 import { Reveal } from "./Reveal";
 
@@ -13,12 +13,30 @@ type ExperienceCardProps = {
 };
 
 const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
+  const [logoFailed, setLogoFailed] = useState(false);
+
   return (
-    <li>
+    <li className="timeline-entry glass-card">
       <Reveal axis="x" distance={index % 2 === 0 ? -26 : 26} delay={index * 0.04}>
-        <p className="timeline-period">{experience.period}</p>
-        <h3>{experience.company}</h3>
-        <h4>{experience.role}</h4>
+        <div className="timeline-head">
+          <div className="timeline-logo-box">
+            {logoFailed ? (
+              <span className="timeline-logo-fallback">{experience.company}</span>
+            ) : (
+              <img
+                src={experience.companyMark}
+                alt={`${experience.company} logo`}
+                loading="lazy"
+                onError={() => setLogoFailed(true)}
+              />
+            )}
+          </div>
+          <div>
+            <p className="timeline-period">{experience.period}</p>
+            <h3>{experience.company}</h3>
+            <h4>{experience.role}</h4>
+          </div>
+        </div>
         <ul>
           {experience.bullets.map((bullet) => (
             <li key={bullet}>{bullet}</li>
@@ -35,10 +53,15 @@ export const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => 
   const rail = useSpring(scrollYProgress, { stiffness: 160, damping: 30, mass: 0.28 });
 
   return (
-    <section className="section timeline-wrap" id="experience" aria-labelledby="experience-title" ref={rootRef}>
+    <section
+      className="section timeline-wrap"
+      id="experience"
+      aria-labelledby="experience-title"
+      ref={rootRef}
+    >
       <Reveal>
-        <p className="section-tag">Experience</p>
-        <h2 id="experience-title">From local product builds to global consulting</h2>
+        <p className="section-tag">Experience Snapshot</p>
+        <h2 id="experience-title">Delivery track from product teams to global consulting</h2>
       </Reveal>
       <div className="timeline-progress" aria-hidden="true">
         <motion.span style={{ scaleY: rail }} />
