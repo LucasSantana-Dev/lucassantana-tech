@@ -16,7 +16,6 @@ on:
 
 permissions:
   contents: read
-  pull-requests: write
 
 concurrency:
   group: deploy-vercel-${{ github.event.pull_request.number || github.ref }}
@@ -25,6 +24,9 @@ concurrency:
 jobs:
   preview:
     name: Preview Deploy
+    permissions:
+      contents: read
+      pull-requests: write
     if: >-
       ${{
         github.event_name == 'pull_request' &&
@@ -214,17 +216,15 @@ jobs:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
           set -euo pipefail
-          if [ -n "$VERCEL_TOKEN" ] && [ -n "$VERCEL_ORG_ID" ] && [ -n "$VERCEL_PROJECT_ID" ] && \
-            npx vercel whoami --token "$VERCEL_TOKEN" >/dev/null 2>&1; then
-            echo "has_secrets=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "has_secrets=false" >> "$GITHUB_OUTPUT"
+          if [ -z "$VERCEL_TOKEN" ] || [ -z "$VERCEL_ORG_ID" ] || [ -z "$VERCEL_PROJECT_ID" ]; then
+            echo "::error::Missing required Vercel secrets: VERCEL_TOKEN/VERCEL_ORG_ID/VERCEL_PROJECT_ID."
+            exit 1
           fi
-
-      - name: Skip when secrets are missing
-        if: ${{ steps.vercel_secrets.outputs.has_secrets != 'true' }}
-        run: |
-          echo "::notice::Vercel production deploy skipped (missing VERCEL_TOKEN/VERCEL_ORG_ID/VERCEL_PROJECT_ID)."
+          if ! npx vercel whoami --token "$VERCEL_TOKEN" >/dev/null 2>&1; then
+            echo "::error::Invalid Vercel token for production deployment."
+            exit 1
+          fi
+          echo "has_secrets=true" >> "$GITHUB_OUTPUT"
 
       - name: Pull Vercel production environment
         if: ${{ steps.vercel_secrets.outputs.has_secrets == 'true' }}

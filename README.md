@@ -100,8 +100,8 @@ Configure in GitHub repository settings:
 - `CLOUDFLARE_API_TOKEN` (Pages write scope)
 - `CLOUDFLARE_ACCOUNT_ID` (`<CLOUDFLARE_ACCOUNT_ID>`)
 - `VERCEL_TOKEN` (token from Vercel account settings)
-- `VERCEL_ORG_ID` (`team_i0KXJ8eY30h0mlXo1IxZe2mI`)
-- `VERCEL_PROJECT_ID` (`prj_3NBVHR7IAZ5KUuc3Oc8j36OhEkYu`)
+- `VERCEL_ORG_ID` (`<VERCEL_ORG_ID>`)
+- `VERCEL_PROJECT_ID` (`<VERCEL_PROJECT_ID>`)
 
 Both deploy workflows validate tokens with `wrangler whoami` and `vercel whoami` before
 attempting deploy steps. If secrets are missing or invalid, preview jobs skip cleanly and post

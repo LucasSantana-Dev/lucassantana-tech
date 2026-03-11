@@ -19,8 +19,13 @@
     deploy credentials skip gracefully instead of failing deployment steps
   - Updated Vercel preview deploy to treat provider rate-limit responses as a
     non-blocking skip with PR comment upsert instead of workflow failure
+  - Updated Vercel production deploy to fail fast when credentials are missing
+    or invalid instead of reporting a green skipped deploy
+  - Scoped `pull-requests: write` permission to Vercel preview job only
   - Added fork-safe preview conditions and upserted PR preview comments
   - Hardened Vercel preview URL parsing (`--no-color` + regex extraction)
+- Replaced README examples of `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID` with
+  placeholder values
 - Added explicit GitHub Actions token permissions for CI (`contents: read`)
 - Set `CLOUDFLARE_ACCOUNT_ID` GitHub Actions secret for repository deploy
   workflows
@@ -33,8 +38,7 @@
   - Added dependency security audit gate (`npm audit --audit-level=high`)
   - Added `deploy-cloudflare-pages.yml` with:
     - PR preview deployments to Cloudflare Pages and automatic PR URL comment
-    - production deployment on `main` push
-    - manual production deployment via `workflow_dispatch`
+    - manual production deployment via `workflow_dispatch` on `main`
 - Documented CI/CD workflows and required Cloudflare secrets in `README.md`
 - Refactored navbar from pill-heavy style to editorial/professional style:
   - Decoupled nav controls from global `ui-action`/`ui-action-chip` classes
