@@ -84,7 +84,8 @@ Pipelines are defined in:
 - Production deploys on push to `main`
 - Manual production deploy available via `workflow_dispatch`
 - PR preview URL is posted back as a PR comment
-- Native Vercel Git deployment triggers are disabled; deploys run only via GitHub Actions
+- Native Vercel Git deployment triggers are disabled and the project Git link is removed;
+  deploys run only via GitHub Actions
 
 ### CD workflow (Cloudflare Pages, fallback/manual)
 

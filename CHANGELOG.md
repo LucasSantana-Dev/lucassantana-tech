@@ -9,6 +9,8 @@
     `VERCEL_PROJECT_ID`
   - Disabled Vercel native Git deployment triggers (`createDeployments: disabled`)
     to avoid redundant provider checks and rely on GitHub Actions deploy workflows
+  - Unlinked Vercel project from GitHub repo to stop native `Vercel` status checks
+    and keep deployment ownership fully in GitHub Actions
 - Refined deployment workflow behavior:
   - Cloudflare production deploy changed to manual-only (`workflow_dispatch` on
     `main`) to avoid dual production deploys with Vercel
