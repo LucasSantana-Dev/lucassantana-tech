@@ -9,13 +9,7 @@ export const useCountUp = (
   const [value, setValue] = useState(0);
 
   useEffect(() => {
-    if (reducedMotion) {
-      setValue(target);
-      return;
-    }
-
     if (!started) {
-      setValue(0);
       return;
     }
 
@@ -33,7 +27,7 @@ export const useCountUp = (
     frame = requestAnimationFrame(step);
 
     return () => cancelAnimationFrame(frame);
-  }, [duration, reducedMotion, started, target]);
+  }, [duration, started, target]);
 
-  return value;
+  return reducedMotion ? target : value;
 };
