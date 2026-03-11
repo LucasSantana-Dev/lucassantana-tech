@@ -6,7 +6,7 @@ React + TypeScript and deployed on Cloudflare Pages.
 ## Highlights
 
 - Neo-dark cinematic visual direction (graphite + Forge Space purple tones)
-- Forge Space brand tokens (Sora / DM Sans / IBM Plex Mono and purple palette)
+- Forge Space brand tokens (Sora / Inter / IBM Plex Mono and purple palette)
 - Motion.dev animation system with reduced-motion fallbacks
 - Three.js node-field ambiance (desktop-first, lazy-loaded, mobile fallback)
 - High-contrast pill/button interaction system with action chips and strong keyboard focus states
@@ -68,6 +68,7 @@ Pipelines are defined in:
 
 - `.github/workflows/ci.yml`
 - `.github/workflows/deploy-cloudflare-pages.yml`
+- `.github/workflows/deploy-vercel.yml`
 
 ### CI workflow
 
@@ -91,6 +92,9 @@ Configure in GitHub repository settings:
 
 - `CLOUDFLARE_API_TOKEN` (Pages write scope)
 - `CLOUDFLARE_ACCOUNT_ID` (`712118840109d834d5e99925fd172432`)
+- `VERCEL_TOKEN` (token from Vercel account settings)
+- `VERCEL_ORG_ID` (`team_i0KXJ8eY30h0mlXo1IxZe2mI`)
+- `VERCEL_PROJECT_ID` (`prj_3NBVHR7IAZ5KUuc3Oc8j36OhEkYu`)
 
 ## Audit Snapshot (Local, Mar 11, 2026)
 

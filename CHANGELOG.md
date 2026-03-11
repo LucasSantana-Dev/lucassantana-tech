@@ -2,6 +2,19 @@
 
 ## 2026-03-11
 
+- Configured Vercel automated deployment:
+  - Added `.github/workflows/deploy-vercel.yml` for PR preview deploys and
+    production deploys on `main`
+  - Added GitHub Actions secrets: `VERCEL_TOKEN`, `VERCEL_ORG_ID`,
+    `VERCEL_PROJECT_ID`
+- Added Cloudflare deploy workflow guards to skip jobs when Cloudflare deploy
+  secrets are missing
+- Set `CLOUDFLARE_ACCOUNT_ID` GitHub Actions secret for repository deploy
+  workflows
+- Updated content typography from serif to sans-serif:
+  - Replaced `Source Serif 4` reading treatment with `Inter`
+  - Switched body/base font stack from `DM Sans` to `Inter`
+  - Removed deferred reading-font runtime loader
 - Implemented GitHub Actions CI/CD pipeline set:
   - Added `ci.yml` for push/PR quality gates (`lint`, `typecheck`, `test:run`, `build`)
   - Added dependency security audit gate (`npm audit --audit-level=high`)

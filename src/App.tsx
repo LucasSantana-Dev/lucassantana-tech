@@ -1,5 +1,5 @@
 import "./App.css";
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { AboutIdentity } from "./components/AboutIdentity";
 import { DeferredSection } from "./components/DeferredSection";
 import { FeaturedProjects } from "./components/FeaturedProjects";
@@ -11,7 +11,6 @@ import { ScrollProgress } from "./components/ScrollProgress";
 import { Seo } from "./components/Seo";
 import { SiteFooter } from "./components/SiteFooter";
 import { nowItems, profile, projects } from "./data/coreContent";
-import { loadReadingFont } from "./lib/loadReadingFont";
 
 const featuredProjects = projects.filter((project) => project.featured);
 const LazySkillsSection = lazy(async () => {
@@ -29,33 +28,6 @@ const LazyMoreDetailsContent = lazy(async () => {
 
 function App() {
   const [showMoreDetails, setShowMoreDetails] = useState(false);
-
-  useEffect(() => {
-    const about = document.getElementById("about");
-    if (!about || typeof IntersectionObserver === "undefined") {
-      void loadReadingFont();
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
-          void loadReadingFont();
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 },
-    );
-
-    observer.observe(about);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (showMoreDetails) {
-      void loadReadingFont();
-    }
-  }, [showMoreDetails]);
 
   return (
     <>

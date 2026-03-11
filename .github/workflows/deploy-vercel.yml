@@ -1,4 +1,4 @@
-name: Deploy Cloudflare Pages
+name: Deploy Vercel
 
 on:
   pull_request:
@@ -19,7 +19,7 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: deploy-cloudflare-${{ github.event.pull_request.number || github.ref }}
+  group: deploy-vercel-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -29,11 +29,16 @@ jobs:
       ${{
         github.event_name == 'pull_request' &&
         !github.event.pull_request.draft &&
-        secrets.CLOUDFLARE_API_TOKEN != '' &&
-        secrets.CLOUDFLARE_ACCOUNT_ID != ''
+        secrets.VERCEL_TOKEN != '' &&
+        secrets.VERCEL_ORG_ID != '' &&
+        secrets.VERCEL_PROJECT_ID != ''
       }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
     steps:
       - name: Checkout
@@ -48,25 +53,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
-        run: npm run build
+      - name: Pull Vercel preview environment
+        run: npx vercel pull --yes --environment=preview --token="$VERCEL_TOKEN"
 
-      - name: Deploy preview to Cloudflare Pages
+      - name: Build Vercel artifacts
+        run: npx vercel build --token="$VERCEL_TOKEN"
+
+      - name: Deploy preview to Vercel
         id: deploy_preview
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           set -euo pipefail
-          OUTPUT_FILE="$(mktemp)"
-          PREVIEW_BRANCH="pr-${{ github.event.number }}"
-          npx wrangler pages deploy dist \
-            --project-name lucassantana-tech \
-            --branch "$PREVIEW_BRANCH" 2>&1 | tee "$OUTPUT_FILE"
-          DEPLOY_URL="$(grep -Eo 'https://[a-z0-9-]+\.lucassantana-tech\.pages\.dev' "$OUTPUT_FILE" | tail -n 1 || true)"
-          if [ -n "$DEPLOY_URL" ]; then
-            echo "url=$DEPLOY_URL" >> "$GITHUB_OUTPUT"
-          fi
+          DEPLOY_URL="$(npx vercel deploy --prebuilt --target=preview --token="$VERCEL_TOKEN" | tail -n 1)"
+          echo "url=$DEPLOY_URL" >> "$GITHUB_OUTPUT"
 
       - name: Comment preview URL
         if: ${{ steps.deploy_preview.outputs.url != '' }}
@@ -76,7 +74,7 @@ jobs:
         with:
           script: |
             const body = [
-              "### Cloudflare Preview",
+              "### Vercel Preview",
               "",
               `Preview URL: ${process.env.PREVIEW_URL}`,
             ].join("\n");
@@ -95,11 +93,16 @@ jobs:
           github.event_name == 'workflow_dispatch' ||
           (github.event_name == 'push' && github.ref == 'refs/heads/main')
         ) &&
-        secrets.CLOUDFLARE_API_TOKEN != '' &&
-        secrets.CLOUDFLARE_ACCOUNT_ID != ''
+        secrets.VERCEL_TOKEN != '' &&
+        secrets.VERCEL_ORG_ID != '' &&
+        secrets.VERCEL_PROJECT_ID != ''
       }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
     steps:
       - name: Checkout
@@ -114,11 +117,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
-        run: npm run build
+      - name: Pull Vercel production environment
+        run: npx vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
 
-      - name: Deploy production to Cloudflare Pages
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: npx wrangler pages deploy dist --project-name lucassantana-tech --branch main
+      - name: Build Vercel artifacts
+        run: npx vercel build --prod --token="$VERCEL_TOKEN"
+
+      - name: Deploy production to Vercel
+        run: npx vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN"
