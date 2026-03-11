@@ -103,7 +103,8 @@ Configure in GitHub repository settings:
 
 Both deploy workflows validate tokens with `wrangler whoami` and `vercel whoami` before
 attempting deploy steps. If secrets are missing or invalid, preview jobs skip cleanly and post
-a status comment instead of failing.
+a status comment instead of failing. Vercel preview jobs also handle provider rate-limit responses
+as non-blocking skips for PR checks.
 
 ## Audit Snapshot (Local, Mar 11, 2026)
 

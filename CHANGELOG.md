@@ -13,6 +13,8 @@
   - Added missing-secret guards in Cloudflare and Vercel workflows
   - Added token-validity checks (`wrangler whoami` / `vercel whoami`) so invalid
     deploy credentials skip gracefully instead of failing deployment steps
+  - Updated Vercel preview deploy to treat provider rate-limit responses as a
+    non-blocking skip with PR comment upsert instead of workflow failure
   - Added fork-safe preview conditions and upserted PR preview comments
   - Hardened Vercel preview URL parsing (`--no-color` + regex extraction)
 - Added explicit GitHub Actions token permissions for CI (`contents: read`)

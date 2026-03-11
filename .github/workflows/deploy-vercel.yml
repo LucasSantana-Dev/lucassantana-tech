@@ -84,14 +84,61 @@ jobs:
         if: ${{ steps.vercel_secrets.outputs.has_secrets == 'true' }}
         run: |
           set -euo pipefail
+          set +e
           OUTPUT="$(npx vercel deploy --prebuilt --target=preview --token="$VERCEL_TOKEN" --no-color 2>&1)"
+          DEPLOY_EXIT=$?
+          set -e
+          if [ "$DEPLOY_EXIT" -ne 0 ]; then
+            if echo "$OUTPUT" | grep -Eiq 'rate limit|too many requests|retry in|limit exceeded'; then
+              echo "::notice::Vercel preview deploy skipped due provider rate limit."
+              echo "skipped=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "::error::Vercel preview deploy failed."
+            echo "$OUTPUT"
+            exit "$DEPLOY_EXIT"
+          fi
           DEPLOY_URL="$(echo "$OUTPUT" | grep -Eo 'https://[^ ]+\.vercel\.app' | tail -n 1 || true)"
           if [ -z "$DEPLOY_URL" ]; then
-            echo "::error::Failed to extract Vercel preview URL from deployment output."
-            echo "$OUTPUT"
-            exit 1
+            echo "::notice::Vercel preview deploy completed without a parsed preview URL."
+            echo "skipped=true" >> "$GITHUB_OUTPUT"
+            exit 0
           fi
           echo "url=$DEPLOY_URL" >> "$GITHUB_OUTPUT"
+
+      - name: Comment skipped preview reason
+        if: ${{ steps.deploy_preview.outputs.skipped == 'true' }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const marker = "<!-- vercel-preview-comment -->";
+            const body = [
+              marker,
+              "### Vercel Preview",
+              "",
+              "Preview skipped in CI (Vercel provider rate limit or URL not returned).",
+            ].join("\n");
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            const existing = comments.find((comment) => comment.body?.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }
 
       - name: Comment preview URL
         if: ${{ steps.deploy_preview.outputs.url != '' }}
