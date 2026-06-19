@@ -1,4 +1,5 @@
-import { getActionVisual } from "../lib/brandAssets";
+import { FiLinkedin, FiMail } from "react-icons/fi";
+import { SiDiscord, SiGithub } from "react-icons/si";
 import type { Profile } from "../types/content";
 
 type SiteFooterProps = {
@@ -6,69 +7,29 @@ type SiteFooterProps = {
 };
 
 export const SiteFooter = ({ profile }: SiteFooterProps) => {
-  const emailVisual = getActionVisual("Email", `mailto:${profile.email}`);
-  const linkedinVisual = getActionVisual("LinkedIn", profile.linkedin);
-  const githubVisual = getActionVisual("GitHub", profile.github);
-  const discordVisual = getActionVisual("Discord", profile.discord);
-
   return (
     <footer className="site-footer">
-      <p>
-        © {new Date().getFullYear()} {profile.name}. Built for lucassantana.tech.
-      </p>
-      <div className="footer-actions">
-        <a className="ui-action ui-action-chip ui-action-ghost" href={`mailto:${profile.email}`}>
-          <emailVisual.Icon className="ui-action-symbol" aria-hidden="true" color={emailVisual.color} />
-          <span>Email</span>
-          <span className="ui-action-icon" aria-hidden="true">
-            ✉
-          </span>
+      <span className="footer-copy">
+        © {new Date().getFullYear()} {profile.name.toLowerCase()} — lucassantana.tech
+      </span>
+      <nav className="footer-links" aria-label="Footer links">
+        <a href={`mailto:${profile.email}`} className="footer-link" aria-label="Email">
+          <FiMail aria-hidden="true" />
+          email
         </a>
-        <a
-          className="ui-action ui-action-chip ui-action-ghost"
-          href={profile.linkedin}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <linkedinVisual.Icon
-            className="ui-action-symbol"
-            aria-hidden="true"
-            color={linkedinVisual.color}
-          />
-          <span>LinkedIn</span>
-          <span className="ui-action-icon" aria-hidden="true">
-            ↗
-          </span>
+        <a href={profile.linkedin} target="_blank" rel="noreferrer" className="footer-link" aria-label="LinkedIn">
+          <FiLinkedin aria-hidden="true" />
+          linkedin
         </a>
-        <a
-          className="ui-action ui-action-chip ui-action-ghost"
-          href={profile.github}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <githubVisual.Icon className="ui-action-symbol" aria-hidden="true" color={githubVisual.color} />
-          <span>GitHub</span>
-          <span className="ui-action-icon" aria-hidden="true">
-            ↗
-          </span>
+        <a href={profile.github} target="_blank" rel="noreferrer" className="footer-link" aria-label="GitHub">
+          <SiGithub aria-hidden="true" />
+          github
         </a>
-        <a
-          className="ui-action ui-action-chip ui-action-primary"
-          href={profile.discord}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <discordVisual.Icon
-            className="ui-action-symbol"
-            aria-hidden="true"
-            color={discordVisual.color}
-          />
-          <span>Join Discord Community</span>
-          <span className="ui-action-icon" aria-hidden="true">
-            ↗
-          </span>
+        <a href={profile.discord} target="_blank" rel="noreferrer" className="footer-link footer-link-accent" aria-label="Discord">
+          <SiDiscord aria-hidden="true" />
+          discord
         </a>
-      </div>
+      </nav>
     </footer>
   );
 };

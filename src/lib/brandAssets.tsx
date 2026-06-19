@@ -36,18 +36,6 @@ export const getActionVisual = (label: string, url: string): ActionVisual => {
 export const getNowTitleLogo = (title: string): LogoAsset | null => {
   const value = title.toLowerCase();
 
-  if (value.includes("forge space")) {
-    return {
-      src: "/images/project-logos/forge-space-mark.svg",
-      alt: "Forge Space logo",
-      width: 176,
-      height: 56,
-    };
-  }
-
-  if (value.includes("siza")) {
-    return { src: "/images/project-logos/siza-logo.svg", alt: "Siza logo", width: 176, height: 56 };
-  }
   if (value.includes("lucky")) {
     return {
       src: "/images/project-logos/lucky-outline-v4-neon-icon.webp",
@@ -61,22 +49,11 @@ export const getNowTitleLogo = (title: string): LogoAsset | null => {
   return null;
 };
 
-export const getOrganizationLogo = (organization: string): LogoAsset | null => {
-  const value = organization.toLowerCase();
-  if (!value.includes("forge-space")) return null;
-
-  return {
-    src: "/images/project-logos/forge-space-mark.svg",
-    alt: "Forge Space logo",
-    width: 176,
-    height: 56,
-  };
+export const getOrganizationLogo = (): LogoAsset | null => {
+  return null;
 };
 
 export const getProjectLogo = (slug: string): LogoAsset | null => {
-  if (slug === "siza") {
-    return { src: "/images/project-logos/siza-logo.svg", alt: "Siza logo", width: 176, height: 56 };
-  }
   if (slug === "lucky") {
     return {
       src: "/images/project-logos/lucky-outline-v4-neon-icon.webp",

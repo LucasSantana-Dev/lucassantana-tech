@@ -34,8 +34,6 @@ function App() {
       <Seo profile={profile} projects={projects} />
       <div className="app-shell">
         <ScrollProgress />
-        <div className="bg-mesh" aria-hidden="true" />
-        <div className="noise" aria-hidden="true" />
         <NavBar profile={profile} />
         <main>
           <Hero profile={profile} />

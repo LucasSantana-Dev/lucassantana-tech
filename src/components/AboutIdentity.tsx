@@ -1,7 +1,5 @@
 import { motion } from "motion/react";
-import { FiClock, FiMapPin, FiUserCheck } from "react-icons/fi";
 import type { Profile } from "../types/content";
-import { Reveal } from "./Reveal";
 
 type AboutIdentityProps = {
   profile: Profile;
@@ -10,58 +8,64 @@ type AboutIdentityProps = {
 export const AboutIdentity = ({ profile }: AboutIdentityProps) => {
   return (
     <section className="section" id="about" aria-labelledby="about-title">
-      <Reveal>
-        <p className="section-tag">About / Identity</p>
-        <h2 id="about-title">Digital business card for collaboration and delivery</h2>
-      </Reveal>
-      <div className="about-bento">
-        <Reveal axis="x" distance={-24}>
-          <article className="about-card about-primary glass-card">
-            <p className="about-eyebrow">Profile</p>
-            <h3>{profile.headlineShort}</h3>
-            <p>{profile.summary}</p>
-            <ul className="about-meta">
-              <li>
-                <FiMapPin aria-hidden="true" />
-                <span>{profile.location}</span>
-              </li>
-              <li>
-                <FiClock aria-hidden="true" />
-                <span>GMT-3 • Remote collaboration</span>
-              </li>
-              {profile.availability ? (
-                <li>
-                  <FiUserCheck aria-hidden="true" />
-                  <span>{profile.availability}</span>
-                </li>
-              ) : null}
-            </ul>
-          </article>
-        </Reveal>
-        <Reveal axis="x" distance={24} delay={0.04}>
-          <article className="about-card about-stats glass-card" aria-label="Impact highlights">
-            <p className="about-eyebrow">Highlights</p>
-            <h3>Measured delivery outcomes</h3>
-            <div className="about-stat-grid">
-              {profile.stats.map((item, index) => (
-                <motion.div
-                  key={item.label}
-                  className="about-stat-chip"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.25 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                >
-                  <strong>
-                    {item.value}
-                    {item.suffix}
-                  </strong>
-                  <span>{item.label}</span>
-                </motion.div>
-              ))}
-            </div>
-          </article>
-        </Reveal>
+      <div className="term-section-head">
+        <span className="term-section-label" id="about-title"># about</span>
+        <span className="term-section-sep" aria-hidden="true" />
+      </div>
+
+      <div className="about-grid">
+        {/* Identity KV */}
+        <div className="about-kv-block">
+          <div className="term-kv">
+            <span className="term-key">ROLE</span>
+            <span className="term-val">Senior Full-Stack Engineer</span>
+          </div>
+          <div className="term-kv">
+            <span className="term-key">LOCATION</span>
+            <span className="term-val">{profile.location}</span>
+          </div>
+          <div className="term-kv">
+            <span className="term-key">TIMEZONE</span>
+            <span className="term-val">UTC-3 · Remote collaboration</span>
+          </div>
+          <div className="term-kv">
+            <span className="term-key">STACK</span>
+            <span className="term-val">{profile.stack.join(" · ")}</span>
+          </div>
+          <div className="term-kv">
+            <span className="term-key">SUMMARY</span>
+            <span className="term-val term-val-block">{profile.summary}</span>
+          </div>
+          <div className="term-kv">
+            <span className="term-key">STATUS</span>
+            <span className="term-val term-val-green">● {profile.availability}</span>
+          </div>
+        </div>
+
+        {/* Metrics table */}
+        <div className="about-metrics">
+          <p className="term-comment"># impact highlights</p>
+          <div className="about-metric-head">
+            <span>METRIC</span>
+            <span>VALUE</span>
+          </div>
+          <div className="about-metric-divider" aria-hidden="true">{"─".repeat(48)}</div>
+          {profile.stats.map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              className="about-metric-row"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.3, delay: i * 0.05 }}
+            >
+              <span className="about-metric-label">{stat.label}</span>
+              <span className="about-metric-val term-val-green">
+                +{stat.value}{stat.suffix}
+              </span>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

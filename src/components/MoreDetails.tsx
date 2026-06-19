@@ -1,6 +1,5 @@
 import { motion, useReducedMotion } from "motion/react";
 import { FiChevronDown } from "react-icons/fi";
-import { Reveal } from "./Reveal";
 
 type MoreDetailsProps = {
   expanded: boolean;
@@ -12,22 +11,22 @@ export const MoreDetails = ({ expanded, onToggle }: MoreDetailsProps) => {
 
   return (
     <section className="section more-details" id="details" aria-labelledby="details-title">
-      <Reveal>
-        <p className="section-tag">More Details</p>
-        <h2 id="details-title">Dive deeper into experience and technical depth</h2>
-      </Reveal>
+      <div className="term-section-head">
+        <span className="term-section-label" id="details-title"># more details</span>
+        <span className="term-section-sep" aria-hidden="true" />
+      </div>
       <p className="details-summary">
-        Additional details include volunteering, career timeline, architecture notes, and metrics.
+        Volunteering, career timeline, architecture notes, and impact metrics.
       </p>
       <motion.button
         type="button"
-        className="ui-action ui-action-secondary details-toggle-btn"
+        className="details-toggle-btn"
         onClick={onToggle}
         aria-expanded={expanded}
         aria-controls="details-content"
         whileTap={reduced ? undefined : { scale: 0.98 }}
       >
-        <span>{expanded ? "Hide details" : "Show more details"}</span>
+        <span>{expanded ? "hide details" : "show more details"}</span>
         <FiChevronDown
           className={`details-chevron${expanded ? " is-open" : ""}`}
           aria-hidden="true"

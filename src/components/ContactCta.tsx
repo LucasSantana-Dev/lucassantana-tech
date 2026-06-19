@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
-import { getActionVisual } from "../lib/brandAssets";
+import { FiDownload, FiLinkedin, FiMail } from "react-icons/fi";
+import { SiDiscord, SiGithub } from "react-icons/si";
+import type { IconType } from "react-icons";
 import type { Profile } from "../types/content";
-import { Reveal } from "./Reveal";
 
 type ContactCtaProps = {
   profile: Profile;
@@ -10,111 +11,63 @@ type ContactCtaProps = {
   as?: "section" | "div";
 };
 
+const contacts = (profile: Profile): Array<{
+  label: string;
+  href: string;
+  display: string;
+  live: boolean;
+  Icon: IconType;
+  iconColor: string;
+}> => [
+  { label: "email",    href: `mailto:${profile.email}`,      display: profile.email,             live: false, Icon: FiMail,      iconColor: "#e2e2dc" },
+  { label: "discord",  href: profile.discord,                display: "discord.gg/qhe6XnanHy",   live: true,  Icon: SiDiscord,   iconColor: "#5865F2" },
+  { label: "linkedin", href: profile.linkedin,               display: "/in/devlucassantana",      live: false, Icon: FiLinkedin,  iconColor: "#0A66C2" },
+  { label: "github",   href: profile.github,                 display: "LucasSantana-Dev",         live: false, Icon: SiGithub,    iconColor: "#e2e2dc" },
+  { label: "resume",   href: "/CV_LucasSantana_Dev(EN).pdf", display: "CV_LucasSantana_Dev.pdf", live: false, Icon: FiDownload,  iconColor: "#a78bfa" },
+];
+
 export const ContactCta = ({
   profile,
   sectionId = "contact",
   className = "section",
   as = "section",
 }: ContactCtaProps) => {
-  const emailVisual = getActionVisual("Email", `mailto:${profile.email}`);
-  const linkedinVisual = getActionVisual("LinkedIn", profile.linkedin);
-  const githubVisual = getActionVisual("GitHub", profile.github);
-  const discordVisual = getActionVisual("Discord", profile.discord);
-  const resumeVisual = getActionVisual("Resume", "/CV_LucasSantana_Dev(EN).pdf");
   const Container = as;
+  const items = contacts(profile);
 
   return (
-    <Container
-      className={`${className} contact glass-card`}
-      id={sectionId}
-      aria-labelledby="contact-title"
-    >
-      <Reveal>
-        <p className="section-tag">Reach Me</p>
-        <h2 id="contact-title">Connect quickly through any channel</h2>
-        <p className="contact-summary">
-          Open to senior engineering roles, architecture consulting, and collaboration on serious
-          products. Fastest response channels are Discord, email, and LinkedIn.
-        </p>
-      </Reveal>
-      <div className="contact-links">
-        <Reveal axis="x" distance={16} delay={0.02}>
+    <Container className={className} id={sectionId} aria-labelledby="contact-title">
+      <div className="term-section-head">
+        <span className="term-section-label" id="contact-title"># reach me</span>
+        <span className="term-section-sep" aria-hidden="true" />
+      </div>
+
+      <p className="contact-summary">
+        Open to senior engineering roles, architecture consulting, and collaboration on serious
+        products. Fastest response: Discord and email.
+      </p>
+
+      <div className="contact-table">
+        {items.map((item, i) => (
           <motion.a
-            className="ui-action ui-action-secondary"
-            href={`mailto:${profile.email}`}
-            whileTap={{ scale: 0.98 }}
+            key={item.label}
+            href={item.href}
+            target={item.href.startsWith("mailto") ? undefined : "_blank"}
+            rel={item.href.startsWith("mailto") ? undefined : "noreferrer"}
+            className={`contact-row${item.live ? " contact-row-live" : ""}`}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.3, delay: i * 0.05 }}
           >
-            <emailVisual.Icon className="ui-action-symbol" aria-hidden="true" color={emailVisual.color} />
-            <span>Email</span>
-            <span className="ui-action-icon" aria-hidden="true">
-              ✉
+            <span className="contact-cmd">
+              <item.Icon aria-hidden="true" className="contact-icon" style={{ color: item.iconColor }} />
+              {item.label}
             </span>
+            <span className="contact-display">{item.display}</span>
+            <span className="contact-arrow" aria-hidden="true">↗</span>
           </motion.a>
-        </Reveal>
-        <Reveal axis="x" distance={16} delay={0.06}>
-          <motion.a
-            className="ui-action ui-action-secondary"
-            href={profile.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            whileTap={{ scale: 0.98 }}
-          >
-            <linkedinVisual.Icon
-              className="ui-action-symbol"
-              aria-hidden="true"
-              color={linkedinVisual.color}
-            />
-            <span>LinkedIn</span>
-            <span className="ui-action-icon" aria-hidden="true">
-              ↗
-            </span>
-          </motion.a>
-        </Reveal>
-        <Reveal axis="x" distance={16} delay={0.1}>
-          <motion.a
-            className="ui-action ui-action-secondary"
-            href={profile.github}
-            target="_blank"
-            rel="noreferrer"
-            whileTap={{ scale: 0.98 }}
-          >
-            <githubVisual.Icon className="ui-action-symbol" aria-hidden="true" color={githubVisual.color} />
-            <span>GitHub</span>
-            <span className="ui-action-icon" aria-hidden="true">
-              ↗
-            </span>
-          </motion.a>
-        </Reveal>
-        <Reveal axis="x" distance={16} delay={0.14}>
-          <motion.a
-            className="ui-action ui-action-primary"
-            href={profile.discord}
-            target="_blank"
-            rel="noreferrer"
-            whileTap={{ scale: 0.98 }}
-          >
-            <discordVisual.Icon className="ui-action-symbol" aria-hidden="true" color={discordVisual.color} />
-            <span>Discord Community</span>
-            <span className="ui-action-icon" aria-hidden="true">
-              ↗
-            </span>
-          </motion.a>
-        </Reveal>
-        <Reveal axis="x" distance={16} delay={0.18}>
-          <motion.a
-            className="ui-action ui-action-ghost"
-            href="/CV_LucasSantana_Dev(EN).pdf"
-            target="_blank"
-            rel="noreferrer"
-            whileTap={{ scale: 0.98 }}
-          >
-            <resumeVisual.Icon className="ui-action-symbol" aria-hidden="true" color={resumeVisual.color} />
-            <span>Resume</span>
-            <span className="ui-action-icon" aria-hidden="true">
-              ↗
-            </span>
-          </motion.a>
-        </Reveal>
+        ))}
       </div>
     </Container>
   );

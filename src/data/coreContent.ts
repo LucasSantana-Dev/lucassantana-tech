@@ -50,26 +50,23 @@ export const profile: Profile = {
 
 export const nowItems: NowItem[] = [
   {
-    title: "Forge Space Ecosystem",
+    title: "Forge Kit Toolkit",
     summary:
-      "Driving platform direction and quality governance patterns across the Forge Space " +
-      "open-source ecosystem.",
+      "Maintaining and extending a unified AI dev toolkit with portable rules, skills, " +
+      "and setup automation across Claude Code, Codex, Cursor, and Copilot.",
     status: "Active",
     links: [
-      { label: "Forge Space", url: "https://forgespace.co/" },
-      { label: "GitHub Org", url: "https://github.com/Forge-Space" },
+      { label: "Repository", url: "https://github.com/LucasSantana-Dev/forgekit" },
     ],
   },
   {
-    title: "Siza + MCP Gateway + ui-mcp",
+    title: "Evidence-First RAG",
     summary:
-      "Evolving AI workspace workflows with MCP-native architecture, scoring, routing, " +
-      "and delivery guardrails.",
+      "Developing a portable hybrid retrieval engine with label-free evaluation, combining " +
+      "BM25, dense retrieval, and Reciprocal Rank Fusion.",
     status: "Shipping",
     links: [
-      { label: "Siza", url: "https://github.com/Forge-Space/siza" },
-      { label: "MCP Gateway", url: "https://github.com/Forge-Space/mcp-gateway" },
-      { label: "ui-mcp", url: "https://github.com/Forge-Space/ui-mcp" },
+      { label: "Repository", url: "https://github.com/LucasSantana-Dev/evidence-first-rag" },
     ],
   },
   {
@@ -87,47 +84,46 @@ export const nowItems: NowItem[] = [
 
 export const projects: Project[] = [
   {
-    slug: "siza",
-    name: "Siza",
-    organization: "Forge-Space",
-    category: "Open Full-Stack AI Workspace",
+    slug: "forgekit",
+    name: "Forge Kit",
+    organization: "LucasSantana-Dev",
+    category: "AI Dev Tooling",
     summary:
-      "Open-source workspace that connects AI generation to real product delivery, from UI " +
-      "to backend and deployment.",
-    stack: ["TypeScript", "Next.js 16", "React 19", "Supabase", "Cloudflare Workers", "MCP"],
+      "Unified AI dev toolkit giving coding agents portable rules, skills, and setup " +
+      "automation across Claude Code, Codex, Cursor, Windsurf, and Copilot.",
+    stack: ["TypeScript", "Shell", "Astro", "Node.js 22+", "pnpm", "Jest", "ESLint"],
     architectureNotes: [
-      "MCP-native architecture with replaceable generation and governance services",
-      "BYOK privacy model with encrypted credential handling",
-      "Monorepo app architecture for web and desktop surfaces",
+      "Monorepo split into apps/web, packages/catalog, packages/cli, and packages/setup",
+      "29 portable skills and 21 playbooks with tool-specific rule templates",
+      "Autonomous execution model with orchestrator and agent roles",
     ],
     impact: [
-      "Positioned as an accessible IDP alternative for AI-assisted software delivery",
-      "Defines the product direction for Forge Space ecosystem",
+      "One-command install of rules, skills, and MCP config across multiple AI tools",
+      "Standardizes AI-assisted development workflows with provider selection and fallbacks",
     ],
-    repoUrl: "https://github.com/Forge-Space/siza",
-    liveUrl: "https://siza.forgespace.co",
+    repoUrl: "https://github.com/LucasSantana-Dev/forgekit",
     featured: true,
     deepDive: true,
   },
   {
-    slug: "mcp-gateway",
-    name: "MCP Gateway",
-    organization: "Forge-Space",
-    category: "AI Tool Routing Hub",
+    slug: "evidence-first-rag",
+    name: "Evidence-First RAG",
+    organization: "LucasSantana-Dev",
+    category: "RAG / Information Retrieval",
     summary:
-      "Self-hosted gateway that aggregates MCP servers with routing, scoring, auth, and " +
-      "operational controls.",
-    stack: ["Python", "Node.js", "Docker", "SQLite", "JWT", "MCP"],
+      "Portable hybrid retrieval engine with label-free evaluation harness, combining BM25, " +
+      "dense retrieval, and Reciprocal Rank Fusion.",
+    stack: ["Python 3.10+", "sentence-transformers", "rank-bm25", "NumPy", "SQLite", "pytest"],
     architectureNotes: [
-      "Single client entrypoint with virtual server strategy",
-      "Gateway-level controls for security and reliability",
-      "Admin UI for server registration and routing management",
+      "Index-time pipeline builds a local SQLite .rag-index from code, docs, and commits",
+      "Query-time pipeline uses dense retrieval + BM25 + RRF with optional reranking",
+      "Evaluation layer measures Hit@K / MRR and gates regressions against a baseline",
     ],
     impact: [
-      "Standardized multi-tool access across local and remote MCP services",
-      "Reduced integration overhead for AI-enabled development workflows",
+      "Label-free retrieval evaluation for any retriever via --retriever flag",
+      "Code-aware tokenization and language-aware chunking for reproducible self-indexed demos",
     ],
-    repoUrl: "https://github.com/Forge-Space/mcp-gateway",
+    repoUrl: "https://github.com/LucasSantana-Dev/evidence-first-rag",
     featured: true,
     deepDive: true,
   },
@@ -155,22 +151,24 @@ export const projects: Project[] = [
     deepDive: true,
   },
   {
-    slug: "ui-mcp",
-    name: "ui-mcp",
-    organization: "Forge-Space",
-    category: "AI-Powered UI Generation Server",
+    slug: "finance-control",
+    name: "Finance Control",
+    organization: "LucasSantana-Dev",
+    category: "Financial Management System",
     summary:
-      "MCP server delivering UI/backend generation capabilities with framework support and " +
-      "quality tooling.",
-    stack: ["TypeScript", "MCP", "Tailwind", "Figma", "ML Quality Scoring"],
+      "Comprehensive Spring Boot financial management system for tracking transactions, " +
+      "managing goals, analyzing spending, and AI-assisted forecasts.",
+    stack: ["Java", "Spring Boot 3.5", "PostgreSQL 17", "Flyway", "Redis", "JWT", "Docker"],
     architectureNotes: [
-      "Thin protocol adapter with separated generation engine",
-      "Multi-framework output pipeline with design context support",
+      "Layered backend: Controller → Service → Repository → Entity",
+      "Modular domain: auth, dashboard, transactions, goals, users, notifications, monitoring",
+      "Cross-cutting concerns: DTO mapping, auditing, caching, rate limiting, health metrics",
     ],
     impact: [
-      "Accelerates production-grade UI generation in the Forge ecosystem",
+      "Full personal finance dashboard with transaction tracking and goal management",
+      "JWT auth with multi-tenant user isolation and Supabase realtime + AI predictions",
     ],
-    repoUrl: "https://github.com/Forge-Space/ui-mcp",
+    repoUrl: "https://github.com/LucasSantana-Dev/finance-control",
     featured: true,
     deepDive: false,
   },

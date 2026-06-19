@@ -1,189 +1,166 @@
-import { motion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useMemo, useState } from "react";
-import {
-  getActionVisual,
-  getOrganizationLogo,
-  getProjectLogo,
-  getProjectPreviews,
-} from "../lib/brandAssets";
 import { getCoreTechIconMeta } from "../lib/coreTechIcons";
 import type { Project } from "../types/content";
-import { Reveal } from "./Reveal";
 
 type FeaturedProjectsProps = {
   projects: Project[];
 };
 
-type ProjectCardProps = {
-  project: Project;
-  index: number;
-  revealPreviews: boolean;
+const prioritySlugs = ["lucky", "forgekit", "evidence-first-rag"];
+
+const STATUS: Record<string, { label: string; cls: string; icon: string }> = {
+  lucky:               { label: "LIVE",   cls: "project-status-live",   icon: "●" },
+  forgekit:            { label: "ACTIVE", cls: "project-status-active", icon: "●" },
+  "evidence-first-rag":{ label: "DEV",    cls: "project-status-dev",    icon: "○" },
+  "finance-control":   { label: "DEV",    cls: "project-status-dev",    icon: "○" },
+  homelab:             { label: "RUNNING",cls: "project-status-live",   icon: "●" },
 };
 
-const prioritySlugs = ["siza", "mcp-gateway", "lucky"];
+const defaultStatus = { label: "DEV", cls: "project-status-dev", icon: "○" };
 
-const ProjectCard = ({ project, index, revealPreviews }: ProjectCardProps) => {
-  const [organizationLogoFailed, setOrganizationLogoFailed] = useState(false);
-  const [projectLogoFailed, setProjectLogoFailed] = useState(false);
-  const organizationLogo = getOrganizationLogo(project.organization);
-  const projectLogo = getProjectLogo(project.slug);
-  const projectPreviews = revealPreviews ? getProjectPreviews(project.slug) : [];
-  const repositoryVisual = getActionVisual("Repository", project.repoUrl);
-  const liveVisual = project.liveUrl ? getActionVisual("Live", project.liveUrl) : null;
+type ProjectRowProps = {
+  project: Project;
+  index: number;
+  isExpanded: boolean;
+  onToggle: () => void;
+};
+
+const ProjectRow = ({ project, index, isExpanded, onToggle }: ProjectRowProps) => {
+  const reduce = useReducedMotion();
+  const status = STATUS[project.slug] ?? defaultStatus;
+  const stackPreview = project.stack.slice(0, 3).join(" · ");
 
   return (
-    <Reveal axis="x" distance={index % 2 === 0 ? -30 : 30} delay={index * 0.04}>
-      <motion.article className="project-card glass-card" whileHover={{ y: -6 }}>
-        <div className="project-brand-top">
-          <div className="project-org-wrap">
-            {organizationLogo && !organizationLogoFailed ? (
-              <img
-                className="project-org-logo"
-                src={organizationLogo.src}
-                alt={organizationLogo.alt}
-                width={organizationLogo.width}
-                height={organizationLogo.height}
-                loading="lazy"
-                decoding="async"
-                onError={() => setOrganizationLogoFailed(true)}
-              />
-            ) : null}
-            <p className="project-org">{project.organization}</p>
-          </div>
-          {projectLogo && !projectLogoFailed ? (
-            <img
-              className={`project-brand-logo${project.slug === "lucky" ? " project-brand-logo-square" : ""}`}
-              src={projectLogo.src}
-              alt={projectLogo.alt}
-              width={projectLogo.width}
-              height={projectLogo.height}
-              loading="lazy"
-              decoding="async"
-              onError={(event) => {
-                if (
-                  projectLogo.fallbackSrc &&
-                  event.currentTarget.currentSrc !== projectLogo.fallbackSrc
-                ) {
-                  event.currentTarget.src = projectLogo.fallbackSrc;
-                  return;
-                }
+    <li className={`project-item${isExpanded ? " is-expanded" : ""}`}>
+      <button
+        type="button"
+        className="project-row"
+        aria-expanded={isExpanded}
+        aria-controls={`project-detail-${project.slug}`}
+        onClick={onToggle}
+      >
+        <span className="project-num">{String(index + 1).padStart(2, "0")}</span>
+        <span className="project-name">{project.name}</span>
+        <span className="project-category">{project.category}</span>
+        <span className="project-stack-preview">{stackPreview}</span>
+        <span className={`project-status ${status.cls}`}>
+          {status.icon} {status.label}
+        </span>
+      </button>
 
-                setProjectLogoFailed(true);
-              }}
-            />
-          ) : projectLogo ? (
-            <span className="project-brand-fallback">{project.name.slice(0, 3).toUpperCase()}</span>
-          ) : null}
-        </div>
-        <h3>{project.name}</h3>
-        <p>{project.summary}</p>
-        {projectPreviews.length > 0 ? (
-          <div className="project-preview-grid">
-            {projectPreviews.map((preview) => (
-              <figure key={preview.src} className="project-preview">
-                <img src={preview.src} alt={preview.alt} loading="lazy" decoding="async" />
-              </figure>
-            ))}
-          </div>
-        ) : null}
-        <ul className="pill-list">
-          {project.stack.slice(0, 4).map((item) => {
-            const iconMeta = getCoreTechIconMeta(item);
-
-            return (
-              <li key={item}>
-                <iconMeta.Icon aria-hidden="true" color={iconMeta.color} />
-                <span>{item}</span>
-              </li>
-            );
-          })}
-        </ul>
-        <div className="project-links">
-          <a
-            className="ui-action ui-action-chip ui-action-secondary"
-            href={project.repoUrl}
-            target="_blank"
-            rel="noreferrer"
+      <AnimatePresence initial={false}>
+        {isExpanded ? (
+          <motion.div
+            id={`project-detail-${project.slug}`}
+            className="project-detail"
+            initial={reduce ? false : { height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={reduce ? {} : { height: 0, opacity: 0 }}
+            transition={{ duration: 0.34, ease: [0.4, 0, 0.2, 1] }}
           >
-            <repositoryVisual.Icon
-              className="ui-action-symbol"
-              aria-hidden="true"
-              color={repositoryVisual.color}
-            />
-            <span>Repository</span>
-            <span className="ui-action-icon" aria-hidden="true">
-              ↗
-            </span>
-          </a>
-          {project.liveUrl ? (
-            <a
-              className="ui-action ui-action-chip ui-action-primary"
-              href={project.liveUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {liveVisual ? (
-                <liveVisual.Icon
-                  className="ui-action-symbol"
-                  aria-hidden="true"
-                  color={liveVisual.color}
-                />
-              ) : null}
-              <span>Live</span>
-              <span className="ui-action-icon" aria-hidden="true">
-                ↗
-              </span>
-            </a>
-          ) : null}
-        </div>
-      </motion.article>
-    </Reveal>
+            <div className="project-detail-inner">
+              <p className="project-summary-text">{project.summary}</p>
+
+              <div className="project-detail-footer">
+                <ul className="project-tags-list" aria-label="Tech stack">
+                  {project.stack.map((item) => {
+                    const iconMeta = getCoreTechIconMeta(item);
+                    return (
+                      <li key={item}>
+                        <iconMeta.Icon aria-hidden="true" color={iconMeta.color} />
+                        <span>{item}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+
+                <nav className="project-action-links" aria-label={`${project.name} links`}>
+                  <a
+                    className="project-action-link"
+                    href={project.repoUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    repository ↗
+                  </a>
+                  {project.liveUrl ? (
+                    <a
+                      className="project-action-link project-action-link-live"
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      live ↗
+                    </a>
+                  ) : null}
+                </nav>
+              </div>
+            </div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+    </li>
   );
 };
 
 export const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
-  const [showMoreProjects, setShowMoreProjects] = useState(false);
+  const [expandedSlug, setExpandedSlug] = useState<string | null>(null);
+  const [showAll, setShowAll] = useState(false);
+
   const orderedProjects = useMemo(() => {
     const primary = prioritySlugs
-      .map((slug) => projects.find((project) => project.slug === slug))
-      .filter((project): project is Project => Boolean(project));
-    const secondary = projects.filter((project) => !prioritySlugs.includes(project.slug));
+      .map((slug) => projects.find((p) => p.slug === slug))
+      .filter((p): p is Project => Boolean(p));
+    const secondary = projects.filter((p) => !prioritySlugs.includes(p.slug));
     return [...primary, ...secondary];
   }, [projects]);
-  const primaryProjects = orderedProjects.slice(0, 3);
-  const secondaryProjects = orderedProjects.slice(3);
-  const visibleProjects = showMoreProjects ? orderedProjects : primaryProjects;
+
+  const visibleProjects = showAll ? orderedProjects : orderedProjects.slice(0, 5);
+  const hiddenCount = orderedProjects.length - 5;
+
+  const handleToggle = (slug: string) => {
+    setExpandedSlug((cur) => (cur === slug ? null : slug));
+  };
 
   return (
     <section className="section" id="projects" aria-labelledby="projects-title">
-      <Reveal>
-        <p className="section-tag">Relevant Projects</p>
-        <h2 id="projects-title">Selected builds that show product and systems execution</h2>
-      </Reveal>
-      <div className="project-grid">
+      <div className="projects-list-header">
+        <span className="projects-section-label" id="projects-title">
+          # selected builds
+        </span>
+        <span className="projects-count">{orderedProjects.length} processes</span>
+      </div>
+
+      {/* Table column headers */}
+      <div className="projects-table-head" aria-hidden="true">
+        <span>ID</span>
+        <span>NAME</span>
+        <span>TYPE</span>
+        <span>STACK</span>
+        <span>STATE</span>
+      </div>
+
+      <ol className="projects-list" aria-label="Featured projects">
         {visibleProjects.map((project, index) => (
-          <ProjectCard
+          <ProjectRow
             key={project.slug}
             project={project}
             index={index}
-            revealPreviews={showMoreProjects}
+            isExpanded={expandedSlug === project.slug}
+            onToggle={() => handleToggle(project.slug)}
           />
         ))}
-      </div>
-      {secondaryProjects.length > 0 ? (
-        <div className="projects-toggle-wrap">
+      </ol>
+
+      {!showAll && hiddenCount > 0 ? (
+        <div className="projects-more">
           <button
             type="button"
-            className="ui-action ui-action-secondary projects-toggle-btn"
-            aria-expanded={showMoreProjects}
-            onClick={() => {
-              setShowMoreProjects((current) => !current);
-            }}
+            className="projects-more-link"
+            onClick={() => setShowAll(true)}
           >
-            <span>{showMoreProjects ? "Show fewer projects" : "Show more projects"}</span>
-            <span className="ui-action-icon" aria-hidden="true">
-              {showMoreProjects ? "−" : "+"}
-            </span>
+            &gt; load {hiddenCount} more
           </button>
         </div>
       ) : null}
