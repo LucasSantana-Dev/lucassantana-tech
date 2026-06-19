@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { FiDownload, FiLinkedin, FiMail } from "react-icons/fi";
+import { FiLinkedin, FiMail } from "react-icons/fi";
 import { SiDiscord, SiGithub } from "react-icons/si";
 import type { IconType } from "react-icons";
 import type { Profile } from "../types/content";
@@ -20,10 +20,9 @@ const contacts = (profile: Profile): Array<{
   iconColor: string;
 }> => [
   { label: "email",    href: `mailto:${profile.email}`,      display: profile.email,             live: false, Icon: FiMail,      iconColor: "#e2e2dc" },
-  { label: "discord",  href: profile.discord,                display: "discord.gg/qhe6XnanHy",   live: true,  Icon: SiDiscord,   iconColor: "#5865F2" },
+  { label: "discord",  href: profile.discord,                display: "discord.com/criativaria",  live: true,  Icon: SiDiscord,   iconColor: "#5865F2" },
   { label: "linkedin", href: profile.linkedin,               display: "/in/devlucassantana",      live: false, Icon: FiLinkedin,  iconColor: "#0A66C2" },
   { label: "github",   href: profile.github,                 display: "LucasSantana-Dev",         live: false, Icon: SiGithub,    iconColor: "#e2e2dc" },
-  { label: "resume",   href: "/CV_LucasSantana_Dev(EN).pdf", display: "CV_LucasSantana_Dev.pdf", live: false, Icon: FiDownload,  iconColor: "#a78bfa" },
 ];
 
 export const ContactCta = ({

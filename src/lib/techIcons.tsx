@@ -24,6 +24,17 @@ import {
   SiJavascript,
   SiJest,
   SiKubernetes,
+  SiAnthropic,
+  SiClaude,
+  SiGithubcopilot,
+  SiGooglegemini,
+  SiLangchain,
+  SiMistralai,
+  SiMocha,
+  SiMongodb,
+  SiOllama,
+  SiOpenai,
+  SiWindsurf,
   SiNextdotjs,
   SiNginx,
   SiNodedotjs,
@@ -70,6 +81,12 @@ export const getTechIconMeta = (label: string, iconKey?: string): IconMeta => {
   if (value.includes("redis")) return { Icon: SiRedis, color: "#FF4438" };
   if (value.includes("sqlite")) return { Icon: SiPostgresql, color: "#9CB5CC" };
   if (value.includes("prisma")) return { Icon: SiPrisma, color: "#8BACE6" };
+  if (value.includes("mongodb")) return { Icon: SiMongodb, color: "#47A248" };
+  if (value.includes("awslambda")) return { Icon: BsCpu, color: "#FF9900" };
+  if (value.includes("awss3")) return { Icon: BsCloudArrowUp, color: "#569A31" };
+  if (value.includes("awsecs")) return { Icon: SiDocker, color: "#FF9900" };
+  if (value.includes("awssqs")) return { Icon: FiLayers, color: "#FF9900" };
+  if (value.includes("awsdynamodb")) return { Icon: FiDatabase, color: "#4053D6" };
   if (value.includes("aws")) return { Icon: FaAws, color: "#FF9900" };
   if (value.includes("cloudflare")) return { Icon: SiCloudflare, color: "#F38020" };
   if (value.includes("dockercompose")) return { Icon: BsCloudArrowUp, color: "#6FC7FF" };
@@ -89,6 +106,7 @@ export const getTechIconMeta = (label: string, iconKey?: string): IconMeta => {
   if (value.includes("githubactions")) return { Icon: SiGithubactions, color: "#2088FF" };
   if (value.includes("github")) return { Icon: SiGithub, color: "#FFFFFF" };
   if (value.includes("playwright")) return { Icon: FiMonitor, color: "#8FD66A" };
+  if (value.includes("mocha")) return { Icon: SiMocha, color: "#8D6748" };
   if (value.includes("jest")) return { Icon: SiJest, color: "#C63D14" };
   if (value.includes("vitest")) return { Icon: SiVitest, color: "#BCCB31" };
   if (value.includes("pytest")) return { Icon: SiPython, color: "#FFE873" };
@@ -97,6 +115,18 @@ export const getTechIconMeta = (label: string, iconKey?: string): IconMeta => {
   if (value.includes("electron")) return { Icon: SiElectron, color: "#47848F" };
   if (value.includes("radix")) return { Icon: FiLayers, color: "#BFC8D8" };
   if (value.includes("shadcn")) return { Icon: FiLayers, color: "#E0E3EB" };
+  if (value.includes("claudecode") || value.includes("claude")) return { Icon: SiClaude, color: "#D97757" };
+  if (value.includes("anthropic")) return { Icon: SiAnthropic, color: "#D97757" };
+  if (value.includes("gemini")) return { Icon: SiGooglegemini, color: "#4285F4" };
+  if (value.includes("copilot")) return { Icon: SiGithubcopilot, color: "#A277FF" };
+  if (value.includes("windsurf")) return { Icon: SiWindsurf, color: "#1ABCFE" };
+  if (value.includes("openai") || value.includes("codex")) return { Icon: SiOpenai, color: "#FFFFFF" };
+  if (value.includes("deepseek")) return { Icon: BsCpu, color: "#4FC4E8" };
+  if (value.includes("cursor")) return { Icon: FiCode, color: "#A7C5FF" };
+  if (value.includes("langchain")) return { Icon: SiLangchain, color: "#1C3C3C" };
+  if (value.includes("ollama")) return { Icon: SiOllama, color: "#FFFFFF" };
+  if (value.includes("mistral")) return { Icon: SiMistralai, color: "#FF7000" };
+  if (value.includes("rag")) return { Icon: FiLayers, color: "#BFA8FF" };
 
   const fallbackValue = label.toLowerCase();
 

@@ -192,14 +192,6 @@ export const Hero = ({ profile }: HeroProps) => {
                   >
                     &gt; join --discord
                   </a>
-                  <a
-                    className="term-action-link term-action-link-live"
-                    href="/CV_LucasSantana_Dev(EN).pdf"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    &gt; download --resume
-                  </a>
                 </div>
               </motion.div>
 

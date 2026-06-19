@@ -2,20 +2,20 @@ import type { NowItem, Profile, Project } from "../types/content";
 
 export const profile: Profile = {
   name: "Lucas Santana",
-  role: "Senior Software Engineer | Full Stack",
-  headlineShort: "Senior Full-Stack Engineer • Node.js • TypeScript • React • AWS",
+  role: "Senior Software Engineer | Full Stack • AI-Native",
+  headlineShort: "Senior Full-Stack Engineer • Node.js • TypeScript • AWS • MCP",
   summary:
-    "Brazilian Senior Full-Stack Software Engineer focused on cloud-native products, " +
-    "platform architecture, and delivery quality across Node.js, TypeScript, React/Next.js, and AWS.",
+    "Brazilian Senior Full-Stack Software Engineer and AI-native developer focused on cloud-native products, " +
+    "agentic workflows, and platform architecture across Node.js, TypeScript, React/Next.js, AWS, and the MCP ecosystem.",
   availability: "Open to Senior Full-Stack and Backend opportunities in remote-first teams.",
   location: "Goiânia, Goiás, Brazil",
   email: "lucas.diassantana@gmail.com",
-  discord: "https://discord.gg/qhe6XnanHy",
+  discord: "https://discord.com/criativaria",
   linkedin: "https://www.linkedin.com/in/devlucassantana/",
   github: "https://github.com/LucasSantana-Dev",
   website: "https://lucassantana.tech",
   heroImage: "/images/lucas-profile.jpg",
-  stack: ["TypeScript", "Node.js", "React", "Next.js", "AWS", "Docker", "MCP"],
+  stack: ["TypeScript", "Node.js", "React", "Next.js", "AWS", "MCP", "Claude Code"],
   stats: [
     {
       label: "Workflow efficiency",
