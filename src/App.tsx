@@ -27,7 +27,7 @@ const LazyMoreDetailsContent = lazy(async () => {
 });
 
 function App() {
-  const [showMoreDetails, setShowMoreDetails] = useState(false);
+  const [showMoreDetails, setShowMoreDetails] = useState(true);
 
   return (
     <>

@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "NODE_ENV=production tsc -b && node scripts/build-blog.mjs && NODE_ENV=production vite build",
+    "build": "NODE_ENV=production tsc -b && node scripts/build-blog.mjs && node scripts/build-projects.mjs && NODE_ENV=production vite build",
     "build:blog": "node scripts/build-blog.mjs",
+    "build:projects": "node scripts/build-projects.mjs",
     "lint": "eslint . --max-warnings 0",
     "preview": "NODE_ENV=production vite preview",
     "typecheck": "tsc -b --pretty false",

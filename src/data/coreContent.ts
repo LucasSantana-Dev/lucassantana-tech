@@ -150,28 +150,6 @@ export const projects: Project[] = [
     deepDive: true,
   },
   {
-    slug: "evidence-first-rag",
-    name: "Evidence-First RAG",
-    organization: "LucasSantana-Dev",
-    category: "RAG / Information Retrieval",
-    summary:
-      "Portable hybrid retrieval engine with label-free evaluation harness, combining BM25, " +
-      "dense retrieval, and Reciprocal Rank Fusion.",
-    stack: ["Python 3.10+", "sentence-transformers", "rank-bm25", "NumPy", "SQLite", "pytest"],
-    architectureNotes: [
-      "Index-time pipeline builds a local SQLite .rag-index from code, docs, and commits",
-      "Query-time pipeline uses dense retrieval + BM25 + RRF with optional reranking",
-      "Evaluation layer measures Hit@K / MRR and gates regressions against a baseline",
-    ],
-    impact: [
-      "Label-free retrieval evaluation for any retriever via --retriever flag",
-      "Code-aware tokenization and language-aware chunking for reproducible self-indexed demos",
-    ],
-    repoUrl: "https://github.com/LucasSantana-Dev/evidence-first-rag",
-    featured: true,
-    deepDive: true,
-  },
-  {
     slug: "lucky",
     name: "Lucky",
     organization: "LucasSantana-Dev",

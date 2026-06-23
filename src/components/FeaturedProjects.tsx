@@ -7,12 +7,13 @@ type FeaturedProjectsProps = {
   projects: Project[];
 };
 
-const prioritySlugs = ["lucky", "forgekit", "evidence-first-rag"];
+const prioritySlugs = ["sharekit", "hitgate", "forgekit"];
 
 const STATUS: Record<string, { label: string; cls: string; icon: string }> = {
+  sharekit:            { label: "LIVE",   cls: "project-status-live",   icon: "●" },
+  hitgate:             { label: "LIVE",   cls: "project-status-live",   icon: "●" },
   lucky:               { label: "LIVE",   cls: "project-status-live",   icon: "●" },
   forgekit:            { label: "ACTIVE", cls: "project-status-active", icon: "●" },
-  "evidence-first-rag":{ label: "DEV",    cls: "project-status-dev",    icon: "○" },
   "finance-control":   { label: "DEV",    cls: "project-status-dev",    icon: "○" },
   homelab:             { label: "RUNNING",cls: "project-status-live",   icon: "●" },
 };
@@ -76,6 +77,9 @@ const ProjectRow = ({ project, index, isExpanded, onToggle }: ProjectRowProps) =
                 </ul>
 
                 <nav className="project-action-links" aria-label={`${project.name} links`}>
+                  <a className="project-action-link" href={`/projects/${project.slug}/`}>
+                    details →
+                  </a>
                   <a
                     className="project-action-link"
                     href={project.repoUrl}
@@ -153,8 +157,8 @@ export const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
         ))}
       </ol>
 
-      {!showAll && hiddenCount > 0 ? (
-        <div className="projects-more">
+      <div className="projects-more">
+        {!showAll && hiddenCount > 0 ? (
           <button
             type="button"
             className="projects-more-link"
@@ -162,8 +166,11 @@ export const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
           >
             &gt; load {hiddenCount} more
           </button>
-        </div>
-      ) : null}
+        ) : null}
+        <a className="projects-more-link" href="/projects/">
+          &gt; full project index
+        </a>
+      </div>
     </section>
   );
 };
