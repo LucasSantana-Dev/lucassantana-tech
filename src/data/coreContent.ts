@@ -173,28 +173,6 @@ export const projects: Project[] = [
     deepDive: true,
   },
   {
-    slug: "finance-control",
-    name: "Finance Control",
-    organization: "LucasSantana-Dev",
-    category: "Financial Management System",
-    summary:
-      "Comprehensive Spring Boot financial management system for tracking transactions, " +
-      "managing goals, analyzing spending, and AI-assisted forecasts.",
-    stack: ["Java", "Spring Boot 3.5", "PostgreSQL 17", "Flyway", "Redis", "JWT", "Docker"],
-    architectureNotes: [
-      "Layered backend: Controller → Service → Repository → Entity",
-      "Modular domain: auth, dashboard, transactions, goals, users, notifications, monitoring",
-      "Cross-cutting concerns: DTO mapping, auditing, caching, rate limiting, health metrics",
-    ],
-    impact: [
-      "Full personal finance dashboard with transaction tracking and goal management",
-      "JWT auth with multi-tenant user isolation and Supabase realtime + AI predictions",
-    ],
-    repoUrl: "https://github.com/LucasSantana-Dev/finance-control",
-    featured: true,
-    deepDive: false,
-  },
-  {
     slug: "homelab",
     name: "homelab",
     organization: "LucasSantana-Dev",

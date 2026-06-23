@@ -14,7 +14,6 @@ const STATUS: Record<string, { label: string; cls: string; icon: string }> = {
   hitgate:             { label: "LIVE",   cls: "project-status-live",   icon: "●" },
   lucky:               { label: "LIVE",   cls: "project-status-live",   icon: "●" },
   forgekit:            { label: "ACTIVE", cls: "project-status-active", icon: "●" },
-  "finance-control":   { label: "DEV",    cls: "project-status-dev",    icon: "○" },
   homelab:             { label: "RUNNING",cls: "project-status-live",   icon: "●" },
 };
 
