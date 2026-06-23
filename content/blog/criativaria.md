@@ -4,9 +4,9 @@ date: "2026-06-18"
 description: "How Criativaria runs a Discord community, a website, and its tools from one markdown repository — lessons in content architecture and treating a community like production infrastructure."
 ---
 
-Criativaria didn't start as a product. It started as a problem its founder, Maria Rita (Luk), couldn't ignore: the gap between someone trying to break into tech and the polished, expert-to-expert content already out there. Experts forget what it felt like to be new, so they write for people who already have the foundation — and everyone else feels shut out.
+Criativaria didn't start as a product. It started as a problem its founder, Maria Rita, couldn't ignore: the gap between someone trying to break into tech and the polished, expert-to-expert content already out there. Experts forget what it felt like to be new, so they write for people who already have the foundation — and everyone else feels shut out.
 
-So a community was built around one mission: close that gap. Today Criativaria is a 4,000+ member Discord community with a growing library of guides — from Git fundamentals to career transitions to the myth that you need heavy math to code. Underneath it sits an architecture decision that makes the whole thing maintainable. That's the part I built, and the part worth writing about.
+So a community was built around one mission: close that gap. Today Criativaria is a 4,000+ member Discord community with a growing library of guides — from Git fundamentals to career transitions to the myth that you need heavy math to code. I'm on the staff and in it daily, and underneath the community sits an architecture decision that makes the whole thing maintainable. That's the part I built, and the part worth writing about.
 
 ## The problem with multi-surface content
 
