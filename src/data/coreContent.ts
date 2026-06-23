@@ -84,6 +84,28 @@ export const nowItems: NowItem[] = [
 
 export const projects: Project[] = [
   {
+    slug: "sharekit",
+    name: "sharekit",
+    organization: "LucasSantana-Dev",
+    category: "AI Dev Tooling",
+    summary:
+      "Share your entire AI coding setup with one command — publish a CLAUDE.md, skills, and a " +
+      "file-based memory system as a GitHub repo, install it anywhere with npx. GitHub is the registry.",
+    stack: ["TypeScript", "Node.js 20+", "npm", "node:test", "Prettier", "GitHub Actions"],
+    architectureNotes: [
+      "Tree-mirror install (claude/ -> ~/.claude) with preview-diff, backup, and one-command rollback",
+      "Profile version pinning via git tags/branches; hooks never auto-installed (security gate)",
+      "GitHub-backed discovery (sharekit search + web directory); OIDC-published to npm, no server",
+    ],
+    impact: [
+      "One-command install of a full Claude Code / Cursor workflow — rules, 65 skills, memory system",
+      "Zero-setup file-based memory with measurable retrieval (memory-eval gate); portable, env-driven",
+    ],
+    repoUrl: "https://github.com/LucasSantana-Dev/sharekit",
+    featured: true,
+    deepDive: false,
+  },
+  {
     slug: "forgekit",
     name: "Forge Kit",
     organization: "LucasSantana-Dev",
