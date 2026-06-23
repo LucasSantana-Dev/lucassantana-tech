@@ -106,6 +106,28 @@ export const projects: Project[] = [
     deepDive: false,
   },
   {
+    slug: "hitgate",
+    name: "hitgate",
+    organization: "LucasSantana-Dev",
+    category: "RAG / Retrieval Eval",
+    summary:
+      "A label-free retrieval regression gate — catch when a change to your RAG index, retriever, or " +
+      "chunking silently degrades recall, before it ships. Auto-mines query/doc pairs; no hand-labeling.",
+    stack: ["Python", "PyPI", "pytest", "GitHub Actions"],
+    architectureNotes: [
+      "Label-free: derives a golden set straight from the corpus — zero manual labeling",
+      "Freezes a Hit@K / MRR baseline; gates CI on regression beyond tolerance",
+      "Ships as a PyPI package + CLI; reproducible, Ubuntu-frozen eval baseline",
+    ],
+    impact: [
+      "Turns silent retrieval rot into a CI gate teams can actually enforce",
+      "Honest by design — measures retrievability change, documents the label-free caveat",
+    ],
+    repoUrl: "https://github.com/LucasSantana-Dev/hitgate",
+    featured: true,
+    deepDive: false,
+  },
+  {
     slug: "forgekit",
     name: "Forge Kit",
     organization: "LucasSantana-Dev",
