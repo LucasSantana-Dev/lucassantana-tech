@@ -76,9 +76,6 @@ const ProjectRow = ({ project, index, isExpanded, onToggle }: ProjectRowProps) =
                 </ul>
 
                 <nav className="project-action-links" aria-label={`${project.name} links`}>
-                  <a className="project-action-link" href={`/projects/${project.slug}/`}>
-                    details →
-                  </a>
                   <a
                     className="project-action-link"
                     href={project.repoUrl}
@@ -156,8 +153,8 @@ export const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
         ))}
       </ol>
 
-      <div className="projects-more">
-        {!showAll && hiddenCount > 0 ? (
+      {!showAll && hiddenCount > 0 ? (
+        <div className="projects-more">
           <button
             type="button"
             className="projects-more-link"
@@ -165,11 +162,8 @@ export const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
           >
             &gt; load {hiddenCount} more
           </button>
-        ) : null}
-        <a className="projects-more-link" href="/projects/">
-          &gt; full project index
-        </a>
-      </div>
+        </div>
+      ) : null}
     </section>
   );
 };

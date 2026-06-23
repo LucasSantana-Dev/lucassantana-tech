@@ -15,8 +15,12 @@ export const VolunteeringCommunity = ({ profile, volunteerItems }: VolunteeringC
   return (
     <section className="section volunteering-grid" id="volunteering" aria-labelledby="volunteering-title">
       <Reveal>
-        <p className="section-tag">Volunteering & Community</p>
-        <h2 id="volunteering-title">Community leadership and mentorship</h2>
+        <div className="projects-list-header">
+          <span className="projects-section-label" id="volunteering-title">
+            # community
+          </span>
+          <span className="projects-count">mentorship &amp; volunteering</span>
+        </div>
       </Reveal>
       <div className="volunteering-layout">
         <Reveal axis="x" distance={-24}>

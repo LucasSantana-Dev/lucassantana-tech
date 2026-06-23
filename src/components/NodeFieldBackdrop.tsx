@@ -67,10 +67,10 @@ const makeGlowTexture = () => {
   canvas.height = 64;
   const ctx = canvas.getContext("2d")!;
   const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-  gradient.addColorStop(0, "rgba(220, 200, 255, 1)");
-  gradient.addColorStop(0.3, "rgba(167, 139, 250, 0.8)");
-  gradient.addColorStop(0.65, "rgba(139, 92, 246, 0.3)");
-  gradient.addColorStop(1, "rgba(109, 40, 217, 0)");
+  gradient.addColorStop(0, "rgba(210, 255, 225, 0.95)");
+  gradient.addColorStop(0.3, "rgba(74, 222, 128, 0.6)");
+  gradient.addColorStop(0.65, "rgba(34, 197, 94, 0.2)");
+  gradient.addColorStop(1, "rgba(20, 83, 45, 0)");
   ctx.fillStyle = gradient;
   ctx.beginPath();
   ctx.arc(32, 32, 32, 0, Math.PI * 2);
@@ -160,7 +160,7 @@ const NodeField = ({ nodeCount, spread, drift }: NodeFieldProps) => {
         />
       </points>
       <lineSegments geometry={edgesGeo}>
-        <lineBasicMaterial color="#8b5cf6" transparent opacity={0.22} depthWrite={false} />
+        <lineBasicMaterial color="#4ade80" transparent opacity={0.15} depthWrite={false} />
       </lineSegments>
     </group>
   );

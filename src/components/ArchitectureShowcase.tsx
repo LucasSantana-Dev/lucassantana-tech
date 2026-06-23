@@ -32,8 +32,12 @@ export const ArchitectureShowcase = ({ projects }: ArchitectureShowcaseProps) =>
   return (
     <section className="section architecture-showcase" id="architecture" aria-labelledby="architecture-title">
       <Reveal>
-        <p className="section-tag">Systems design</p>
-        <h2 id="architecture-title">Architecture thinking behind the shipped products</h2>
+        <div className="projects-list-header">
+          <span className="projects-section-label" id="architecture-title">
+            # architecture
+          </span>
+          <span className="projects-count">system design notes</span>
+        </div>
       </Reveal>
       <div className="architecture-layout">
         <div className="architecture-pillars">
