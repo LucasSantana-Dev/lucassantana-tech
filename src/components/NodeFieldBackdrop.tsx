@@ -87,25 +87,19 @@ const NodeField = ({ nodeCount, spread, drift }: NodeFieldProps) => {
     return { base, phases, edgeIndices };
   }, [nodeCount, spread]);
 
-  const nodePositions = useMemo(() => new Float32Array(nodeCount * 3), [nodeCount]);
-  const edgePositions = useMemo(
-    () => new Float32Array(edgeIndices.length * 3),
-    [edgeIndices.length],
-  );
-
   const glowTexture = useMemo(() => makeGlowTexture(), []);
 
   const nodesGeo = useMemo(() => {
     const g = new BufferGeometry();
-    g.setAttribute("position", new BufferAttribute(nodePositions, 3));
+    g.setAttribute("position", new BufferAttribute(new Float32Array(nodeCount * 3), 3));
     return g;
-  }, [nodePositions]);
+  }, [nodeCount]);
 
   const edgesGeo = useMemo(() => {
     const g = new BufferGeometry();
-    g.setAttribute("position", new BufferAttribute(edgePositions, 3));
+    g.setAttribute("position", new BufferAttribute(new Float32Array(edgeIndices.length * 3), 3));
     return g;
-  }, [edgePositions]);
+  }, [edgeIndices.length]);
 
   useEffect(
     () => () => {
@@ -116,25 +110,29 @@ const NodeField = ({ nodeCount, spread, drift }: NodeFieldProps) => {
     [nodesGeo, edgesGeo, glowTexture],
   );
 
+  /* eslint-disable react-hooks/immutability -- Three.js buffer animation requires mutating geometry attributes in the render loop */
   useFrame(({ clock, pointer }) => {
     const t = clock.getElapsedTime();
     const amp = 0.18;
     const freq = 0.36;
 
+    const nodePos = nodesGeo.attributes.position.array as Float32Array;
+    const edgePos = edgesGeo.attributes.position.array as Float32Array;
+
     for (let i = 0; i < nodeCount; i++) {
       const px = phases[i * 3];
       const py = phases[i * 3 + 1];
       const pz = phases[i * 3 + 2];
-      nodePositions[i * 3] = base[i * 3] + Math.sin(t * freq + px) * amp;
-      nodePositions[i * 3 + 1] = base[i * 3 + 1] + Math.cos(t * freq * 0.8 + py) * amp;
-      nodePositions[i * 3 + 2] = base[i * 3 + 2] + Math.sin(t * freq * 0.58 + pz) * amp * 0.7;
+      nodePos[i * 3] = base[i * 3] + Math.sin(t * freq + px) * amp;
+      nodePos[i * 3 + 1] = base[i * 3 + 1] + Math.cos(t * freq * 0.8 + py) * amp;
+      nodePos[i * 3 + 2] = base[i * 3 + 2] + Math.sin(t * freq * 0.58 + pz) * amp * 0.7;
     }
 
     for (let e = 0; e < edgeIndices.length; e++) {
       const ni = edgeIndices[e];
-      edgePositions[e * 3] = nodePositions[ni * 3];
-      edgePositions[e * 3 + 1] = nodePositions[ni * 3 + 1];
-      edgePositions[e * 3 + 2] = nodePositions[ni * 3 + 2];
+      edgePos[e * 3] = nodePos[ni * 3];
+      edgePos[e * 3 + 1] = nodePos[ni * 3 + 1];
+      edgePos[e * 3 + 2] = nodePos[ni * 3 + 2];
     }
 
     nodesGeo.attributes.position.needsUpdate = true;
@@ -145,6 +143,7 @@ const NodeField = ({ nodeCount, spread, drift }: NodeFieldProps) => {
       groupRef.current.rotation.x = Math.sin(t * 0.28) * 0.07 + pointer.y * 0.1;
     }
   });
+  /* eslint-enable react-hooks/immutability */
 
   return (
     <group ref={groupRef}>
