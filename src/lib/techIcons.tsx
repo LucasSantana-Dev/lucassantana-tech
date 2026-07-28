@@ -12,6 +12,7 @@ import {
   FiSliders,
   FiTool,
 } from "react-icons/fi";
+import { TbBrandOpenai } from "react-icons/tb";
 import {
   SiElectron,
   SiCloudflare,
@@ -33,7 +34,6 @@ import {
   SiMocha,
   SiMongodb,
   SiOllama,
-  SiOpenai,
   SiWindsurf,
   SiNextdotjs,
   SiNginx,
@@ -120,7 +120,7 @@ export const getTechIconMeta = (label: string, iconKey?: string): IconMeta => {
   if (value.includes("gemini")) return { Icon: SiGooglegemini, color: "#4285F4" };
   if (value.includes("copilot")) return { Icon: SiGithubcopilot, color: "#A277FF" };
   if (value.includes("windsurf")) return { Icon: SiWindsurf, color: "#1ABCFE" };
-  if (value.includes("openai") || value.includes("codex")) return { Icon: SiOpenai, color: "#FFFFFF" };
+  if (value.includes("openai") || value.includes("codex")) return { Icon: TbBrandOpenai, color: "#FFFFFF" };
   if (value.includes("deepseek")) return { Icon: BsCpu, color: "#4FC4E8" };
   if (value.includes("cursor")) return { Icon: FiCode, color: "#A7C5FF" };
   if (value.includes("langchain")) return { Icon: SiLangchain, color: "#1C3C3C" };
