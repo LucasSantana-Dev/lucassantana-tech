@@ -1,58 +1,40 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { render, screen } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
 import { skillAreas } from "../data/content";
-import { useIsMobile } from "../hooks/useIsMobile";
 import { SkillsMap } from "./SkillsMap";
 
-vi.mock("../hooks/useIsMobile", () => ({
-  useIsMobile: vi.fn(),
-}));
-
-const mockedUseIsMobile = vi.mocked(useIsMobile);
-
 describe("SkillsMap", () => {
-  beforeEach(() => {
-    mockedUseIsMobile.mockReturnValue(false);
-  });
-
-  it("shows curated skills by default and expands to full list", () => {
+  it("renders all skill areas with their skills and levels", () => {
     render(<SkillsMap skillAreas={skillAreas} />);
 
-    expect(screen.getByRole("heading", { name: /Skills by area and confidence/i })).toBeInTheDocument();
-    expect(screen.queryByText("Electron")).not.toBeInTheDocument();
+    // Section label (not a heading)
+    expect(screen.getByText("# skills")).toBeInTheDocument();
 
-    fireEvent.click(screen.getAllByRole("button", { name: /Show more/i })[0]);
-    expect(screen.getByText("Electron")).toBeInTheDocument();
-    expect(screen.getAllByRole("button", { name: /Show less/i })[0]).toBeInTheDocument();
-  });
-
-  it("updates desktop hover details when moving between skills", () => {
-    render(<SkillsMap skillAreas={skillAreas} />);
-
-    expect(screen.getByText(/Core UI layer across Forge Space products/i)).toBeInTheDocument();
-
-    const tailwindItem = screen.getByText("Tailwind CSS").closest("li");
-    expect(tailwindItem).not.toBeNull();
-    if (!tailwindItem) {
-      throw new Error("Tailwind row not found");
+    // All skill areas rendered
+    for (const group of skillAreas) {
+      expect(screen.getByText(group.area.toLowerCase())).toBeInTheDocument();
+      for (const skill of group.skills) {
+        expect(screen.getByText(skill.name.toLowerCase())).toBeInTheDocument();
+      }
     }
-
-    fireEvent.mouseEnter(tailwindItem);
-
-    expect(screen.getByText(/Design-system implementation for fast, maintainable UI iteration/i)).toBeInTheDocument();
   });
 
-  it("uses accordion behavior on mobile", () => {
-    mockedUseIsMobile.mockReturnValue(true);
-
+  it("renders level labels for each skill", () => {
     render(<SkillsMap skillAreas={skillAreas} />);
 
-    expect(screen.queryByText("React")).not.toBeInTheDocument();
+    const allLevels = skillAreas.flatMap((g) => g.skills.map((s) => s.level));
+    const uniqueLevels = new Set(allLevels);
 
-    const toggleButtons = screen.getAllByRole("button", { name: /Show/i });
-    fireEvent.click(toggleButtons[0]);
+    for (const level of uniqueLevels) {
+      expect(screen.getAllByText(level).length).toBeGreaterThan(0);
+    }
+  });
 
-    expect(screen.getByText("React")).toBeInTheDocument();
-    expect(screen.getByText(/Core UI layer across Forge Space products/i)).toBeInTheDocument();
+  it("has correct aria-labelledby pointing to skills-title", () => {
+    render(<SkillsMap skillAreas={skillAreas} />);
+
+    const section = screen.getByRole("region");
+    expect(section).toHaveAttribute("aria-labelledby", "skills-title");
+    expect(screen.getByText("# skills")).toHaveAttribute("id", "skills-title");
   });
 });
