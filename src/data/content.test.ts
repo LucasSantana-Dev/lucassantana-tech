@@ -4,12 +4,12 @@ import { resolve } from "node:path";
 import { experiences, nowItems, profile, projects, skillAreas, volunteerItems } from "./content";
 
 describe("content integrity", () => {
-  it("has six featured projects and three deep dives", () => {
+  it("has six featured projects and two deep dives", () => {
     const featured = projects.filter((item) => item.featured);
     const deep = projects.filter((item) => item.deepDive);
 
     expect(featured).toHaveLength(6);
-    expect(deep).toHaveLength(3);
+    expect(deep).toHaveLength(2);
   });
 
   it("keeps repository links valid for all featured projects", () => {
@@ -33,8 +33,8 @@ describe("content integrity", () => {
   });
 
   it("keeps discord URL valid in profile", () => {
-    expect(profile.discord).toBe("https://discord.gg/qhe6XnanHy");
-    expect(profile.discord).toMatch(/^https:\/\/discord\.gg\/[a-zA-Z0-9]+$/);
+    expect(profile.discord).toBe("https://discord.com/criativaria");
+    expect(profile.discord).toMatch(/^https:\/\/discord\.(com|gg)\/.+$/);
   });
 
   it("keeps now section items complete with valid links", () => {

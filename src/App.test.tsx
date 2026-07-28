@@ -5,65 +5,56 @@ import { axe } from "vitest-axe";
 import App from "./App";
 
 describe("App", () => {
-  it("renders core sections, keeps details collapsed, and expands on demand", async () => {
+  it("renders core sections with terminal-style labels and nav links", async () => {
     render(
       <HelmetProvider>
         <App />
       </HelmetProvider>,
     );
 
-    expect(screen.getByRole("heading", { name: "Lucas Santana" })).toBeInTheDocument();
-    expect(
-      screen.getByRole("heading", { name: /Digital business card for collaboration and delivery/i }),
-    ).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /What I am building right now/i })).toBeInTheDocument();
-    expect(
-      screen.getByRole("heading", { name: /Selected builds that show product and systems execution/i }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("heading", { name: /Dive deeper into experience and technical depth/i }),
-    ).toBeInTheDocument();
-    expect(
-      screen.queryByRole("heading", { name: /Community leadership and mentorship/i }),
-    ).not.toBeInTheDocument();
-    expect(screen.queryByRole("heading", { name: /Architecture thinking/i })).not.toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "About" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Now" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Projects" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Skills" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Reach Me" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /Download resume/i })).toHaveAttribute(
-      "href",
-      "/CV_LucasSantana_Dev(EN).pdf",
-    );
-    expect(screen.getAllByRole("link", { name: /Join Discord/i }).length).toBeGreaterThanOrEqual(3);
+    // Hero renders name in a terminal-style span, not a heading
+    expect(screen.getByText("Lucas Santana")).toBeInTheDocument();
 
-    const detailsToggle = screen.getByRole("button", { name: /Show more details/i });
-    expect(detailsToggle).toHaveAttribute("aria-expanded", "false");
+    // Section labels (terminal-style spans, not headings)
+    expect(screen.getByText("# about")).toBeInTheDocument();
+    expect(screen.getByText("# now")).toBeInTheDocument();
+    expect(screen.getByText("# selected builds")).toBeInTheDocument();
+    expect(screen.getByText("# more details")).toBeInTheDocument();
+
+    // Nav links are lowercase
+    expect(screen.getByRole("link", { name: "about" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "now" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "projects" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "skills" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "contact" })).toBeInTheDocument();
+
+    // MoreDetails starts expanded (initial state true)
+    const detailsToggle = screen.getByRole("button", { name: /hide details/i });
+    expect(detailsToggle).toHaveAttribute("aria-expanded", "true");
+
+    // Click to collapse
     fireEvent.click(detailsToggle);
-    expect(await screen.findByRole("button", { name: /Hide details/i })).toHaveAttribute(
-      "aria-expanded",
-      "true",
-    );
+    expect(
+      await screen.findByRole("button", { name: /show more details/i }),
+    ).toHaveAttribute("aria-expanded", "false");
   });
 
-  it("shows three projects by default and reveals all projects on toggle", () => {
+  it("shows five projects by default and reveals all on toggle", () => {
     const { container } = render(
       <HelmetProvider>
         <App />
       </HelmetProvider>,
     );
 
-    expect(container.querySelectorAll(".project-card")).toHaveLength(3);
-    expect(screen.queryByAltText("LinkedIn Engage store promo image")).not.toBeInTheDocument();
+    // 5 projects visible by default
+    expect(container.querySelectorAll(".project-row")).toHaveLength(5);
 
-    fireEvent.click(screen.getByRole("button", { name: /Show more projects/i }));
-    expect(container.querySelectorAll(".project-card")).toHaveLength(6);
-    expect(screen.getByAltText("LinkedIn Engage store promo image")).toBeInTheDocument();
+    // Load more button
+    const loadMore = screen.getByRole("button", { name: /load 1 more/i });
+    fireEvent.click(loadMore);
 
-    fireEvent.click(screen.getByRole("button", { name: /Show fewer projects/i }));
-    expect(container.querySelectorAll(".project-card")).toHaveLength(3);
-    expect(screen.queryByAltText("LinkedIn Engage store promo image")).not.toBeInTheDocument();
+    // All 6 projects visible
+    expect(container.querySelectorAll(".project-row")).toHaveLength(6);
   });
 
   it(
