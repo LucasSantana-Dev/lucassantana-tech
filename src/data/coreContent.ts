@@ -212,4 +212,48 @@ export const projects: Project[] = [
     featured: true,
     deepDive: false,
   },
+  {
+    slug: "leakless",
+    name: "leakless",
+    organization: "LucasSantana-Dev",
+    category: "Security Tooling",
+    summary:
+      "Rule-driven Ruby CLI that scans a directory for leaked secrets (private keys, cloud/API " +
+      "tokens, sensitive env vars) before you publish it, with optional AI triage that labels " +
+      "each finding without any secret value ever leaving the machine.",
+    stack: ["Ruby 3.2+", "Thor", "RubyLLM", "RSpec", "RuboCop", "GitHub Actions"],
+    architectureNotes: [
+      "Redaction-by-construction: prompts carry only value shape (length + Shannon entropy), no opt-out",
+      "Rule table of Data.define objects; Enumerator dual API; case/in pattern matching on findings",
+      "ruby_llm is optional: plain scan never loads the provider stack (autoload + subprocess-verified)",
+    ],
+    impact: [
+      "Published to RubyGems (leakless 0.3.0) with MFA-required pushes",
+      "Verified end-to-end fully local against Ollama qwen3:4b",
+    ],
+    repoUrl: "https://github.com/LucasSantana-Dev/leakless",
+    featured: false,
+    deepDive: false,
+  },
+  {
+    slug: "brainchat",
+    name: "brainchat",
+    organization: "LucasSantana-Dev",
+    category: "RAG / Retrieval Eval",
+    summary:
+      "Ruby AI CLI for chatting over a personal knowledge base: retrieval shells out to the " +
+      "hitgate CLI (JSON), answers cite the chunks they used.",
+    stack: ["Ruby 3.2+", "RubyLLM", "Thor", "RSpec", "hitgate"],
+    architectureNotes: [
+      "Retrieval via Open3 argv-array shell-out to hitgate, no shell interpolation",
+      "Retrieved chunks injected as context with citations in the reply",
+      "RubyLLM 1.16 structured chat, provider-agnostic (Anthropic, OpenAI, Ollama)",
+    ],
+    impact: [
+      "Turns a file-based knowledge vault into a conversational interface from the terminal",
+    ],
+    repoUrl: "https://github.com/LucasSantana-Dev/brainchat",
+    featured: false,
+    deepDive: false,
+  },
 ];
