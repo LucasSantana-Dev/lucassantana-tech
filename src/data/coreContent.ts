@@ -7,7 +7,7 @@ export const profile: Profile = {
   summary:
     "Brazilian Senior Full-Stack Software Engineer and AI-native developer focused on cloud-native products, " +
     "agentic workflows, and platform architecture across Node.js, TypeScript, React/Next.js, AWS, and the MCP ecosystem.",
-  availability: "Open to Senior Full-Stack and Backend opportunities in remote-first teams.",
+  availability: "Open to open-source collaboration and technical conversations on AI tooling and platform architecture.",
   location: "Goiânia, Goiás, Brazil",
   email: "lucas.diassantana@gmail.com",
   discord: "https://discord.com/criativaria",

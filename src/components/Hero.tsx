@@ -149,7 +149,7 @@ export const Hero = ({ profile }: HeroProps) => {
                   </div>
                   <div className="term-kv">
                     <span className="term-key">STATUS</span>
-                    <span className="term-val term-val-green">● Open to senior IC / Staff roles</span>
+                    <span className="term-val term-val-green">● Building AI developer tooling</span>
                   </div>
                 </div>
               </motion.div>

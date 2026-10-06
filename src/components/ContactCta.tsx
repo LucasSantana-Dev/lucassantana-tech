@@ -42,8 +42,7 @@ export const ContactCta = ({
       </div>
 
       <p className="contact-summary">
-        Open to senior engineering roles, architecture consulting, and collaboration on serious
-        products. Fastest response: Discord and email.
+        Open to open-source collaboration, technical talks, and architecture conversations. Fastest response: Discord and email.
       </p>
 
       <div className="contact-table">
