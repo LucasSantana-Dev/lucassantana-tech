@@ -20,7 +20,8 @@ export const experiences: ExperienceItem[] = [
     bullets: [
       "Implemented Splunk-based observability and monitoring for distributed services",
       "Expanded automated test coverage (Mocha, Jest) on REST APIs and microservices",
-      "Maintained backend infrastructure supporting 100k+ monthly active users",
+      "Built backend services with Node.js and AWS Lambda for a global consumer brand's mobile app and personalization platform",
+      "Built frontend features with C#, Razor Pages and Optimizely CMS for a US financial services company",
     ],
   },
   {

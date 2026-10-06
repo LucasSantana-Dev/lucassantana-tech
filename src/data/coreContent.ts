@@ -18,11 +18,11 @@ export const profile: Profile = {
   stack: ["TypeScript", "Node.js", "React", "Next.js", "AWS", "MCP", "Claude Code"],
   stats: [
     {
-      label: "Platforms supported",
-      value: 100,
-      suffix: "k+ MAU",
-      context: "Backend support for high-scale mobile/web products",
-      source: "CV",
+      label: "Automated tests",
+      value: 2500,
+      suffix: "+ tests",
+      context: "Lucky monorepo suite, with migration gate and mutation testing in CI",
+      source: "GitHub",
     },
     {
       label: "Internal tool adoption",
