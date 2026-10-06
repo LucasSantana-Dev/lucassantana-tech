@@ -18,10 +18,10 @@ export const profile: Profile = {
   stack: ["TypeScript", "Node.js", "React", "Next.js", "AWS", "MCP", "Claude Code"],
   stats: [
     {
-      label: "Platforms supported",
+      label: "Lucky reach",
       value: 100,
-      suffix: "k+ MAU",
-      context: "Backend support for high-scale mobile/web products",
+      suffix: "k+ members",
+      context: "Lucky Discord bot serving 50+ servers",
       source: "CV",
     },
     {
