@@ -7,7 +7,7 @@ export const profile: Profile = {
   summary:
     "Brazilian Senior Full-Stack Software Engineer and AI-native developer focused on cloud-native products, " +
     "agentic workflows, and platform architecture across Node.js, TypeScript, React/Next.js, AWS, and the MCP ecosystem.",
-  availability: "Open to Senior Full-Stack and Backend opportunities in remote-first teams.",
+  availability: "Open to open-source collaboration and technical conversations on AI tooling and platform architecture.",
   location: "Goiânia, Goiás, Brazil",
   email: "lucas.diassantana@gmail.com",
   discord: "https://discord.com/criativaria",
@@ -26,9 +26,9 @@ export const profile: Profile = {
     },
     {
       label: "Internal tool adoption",
-      value: 500,
+      value: 550,
       suffix: "+ users",
-      context: "70% adoption of an internal Kanban across a 700-person company",
+      context: "Internal Kanban workspace adopted across the company",
       source: "CV",
     },
     {
@@ -39,11 +39,11 @@ export const profile: Profile = {
       source: "CV",
     },
     {
-      label: "Incident response",
-      value: 40,
-      suffix: "% faster",
-      context: "MTTR cut after Splunk observability on 100k+ MAU platforms",
-      source: "CV",
+      label: "Retrieval quality",
+      value: 46,
+      suffix: "% Hit@5",
+      context: "hitgate raised Hit@5 from 0.587 to 0.86 (open source, on PyPI)",
+      source: "GitHub",
     },
   ],
 };
