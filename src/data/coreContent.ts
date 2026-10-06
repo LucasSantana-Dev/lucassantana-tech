@@ -26,9 +26,9 @@ export const profile: Profile = {
     },
     {
       label: "Internal tool adoption",
-      value: 500,
+      value: 550,
       suffix: "+ users",
-      context: "70% adoption of an internal Kanban across a 700-person company",
+      context: "Internal Kanban workspace adopted across the company",
       source: "CV",
     },
     {
@@ -39,11 +39,11 @@ export const profile: Profile = {
       source: "CV",
     },
     {
-      label: "Incident response",
-      value: 40,
-      suffix: "% faster",
-      context: "MTTR cut after Splunk observability on 100k+ MAU platforms",
-      source: "CV",
+      label: "Retrieval quality",
+      value: 46,
+      suffix: "% Hit@5",
+      context: "hitgate raised Hit@5 from 0.587 to 0.86 (open source, on PyPI)",
+      source: "GitHub",
     },
   ],
 };

@@ -7,19 +7,19 @@ export const experiences: ExperienceItem[] = [
     role: "Senior Software Consultant | Full Stack",
     period: "Jan 2026 — Present",
     bullets: [
-      "Architecting scalable React/Next.js interfaces for enterprise clients",
-      "Designing cloud-native Node.js/AWS backend architectures",
-      "Mentoring engineers and driving code quality in cross-functional teams",
+      "Built reporting features with React and Node.js for a restaurant-technology client",
+      "Contributed to a digital payments platform for a global cosmetics retailer",
+      "Applied AI-assisted development with code review and validation of generated output",
     ],
   },
   {
     company: "CI&T",
     companyMark: "/images/company-logos/ciandt.svg",
     role: "Software Engineer | Full Stack",
-    period: "Jan 2023 — Dec 2025",
+    period: "Jan 2024 — Dec 2025",
     bullets: [
-      "Improved incident response by 40% using better monitoring and health tracking",
-      "Increased code reliability by 25% via robust automated tests",
+      "Implemented Splunk-based observability and monitoring for distributed services",
+      "Expanded automated test coverage (Mocha, Jest) on REST APIs and microservices",
       "Maintained backend infrastructure supporting 100k+ monthly active users",
     ],
   },
@@ -29,8 +29,8 @@ export const experiences: ExperienceItem[] = [
     role: "Software Developer | Full Stack",
     period: "Nov 2022 — Dec 2023",
     bullets: [
-      "Improved task-tracking efficiency by 50% with internal Kanban tooling",
-      "Reduced downtime by 40% through modular microservice architecture",
+      "Built an internal Kanban workspace with React and Node.js, adopted by 550+ employees",
+      "Decomposed the platform from a monolith into TypeScript/Node.js microservices",
     ],
   },
   {
