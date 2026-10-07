@@ -13,6 +13,7 @@ import {
   FiTool,
 } from "react-icons/fi";
 import { TbBrandOpenai } from "react-icons/tb";
+import { VscAzureDevops } from "react-icons/vsc";
 import {
   SiElectron,
   SiCloudflare,
@@ -103,6 +104,7 @@ export const getTechIconMeta = (label: string, iconKey?: string): IconMeta => {
   if (value.includes("netdata")) return { Icon: FiMonitor, color: "#73DDFF" };
   if (value.includes("sentry")) return { Icon: SiSentry, color: "#9071E2" };
   if (value === "n8n" || value.includes("n8n")) return { Icon: FiTool, color: "#F16E43" };
+  if (value.includes("azuredevops")) return { Icon: VscAzureDevops, color: "#0078D7" };
   if (value.includes("githubactions")) return { Icon: SiGithubactions, color: "#2088FF" };
   if (value.includes("github")) return { Icon: SiGithub, color: "#FFFFFF" };
   if (value.includes("playwright")) return { Icon: FiMonitor, color: "#8FD66A" };

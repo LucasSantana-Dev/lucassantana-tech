@@ -426,6 +426,14 @@ export const skillAreas: SkillArea[] = [
         context: "Automated CI pipelines, quality checks, and release automation.",
       },
       {
+        name: "Azure DevOps",
+        level: "strong",
+        iconKey: "azuredevops",
+        evidence: ["career"],
+        featured: true,
+        context: "Boards and pipelines for delivery tracking and CI/CD in client and product teams.",
+      },
+      {
         name: "Playwright",
         level: "strong",
         iconKey: "playwright",
