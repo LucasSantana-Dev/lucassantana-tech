@@ -28,7 +28,7 @@
   Cache-Control: public, max-age=604800
 
 /CV_LucasSantana_Dev(EN).pdf
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=3600
 
 /robots.txt
   Cache-Control: public, max-age=86400
