@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "gsap": "^3.15.0",
-    "motion": "^12.42.2",
+    "motion": "^14.0.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "react-helmet-async": "^3.0.0",
