@@ -7,9 +7,10 @@ type FeaturedProjectsProps = {
   projects: Project[];
 };
 
-const prioritySlugs = ["sharekit", "hitgate", "forgekit"];
+const prioritySlugs = ["decision-critic", "hitgate", "sharekit"];
 
 const STATUS: Record<string, { label: string; cls: string; icon: string }> = {
+  "decision-critic":   { label: "LIVE",   cls: "project-status-live",   icon: "●" },
   sharekit:            { label: "LIVE",   cls: "project-status-live",   icon: "●" },
   hitgate:             { label: "LIVE",   cls: "project-status-live",   icon: "●" },
   lucky:               { label: "LIVE",   cls: "project-status-live",   icon: "●" },

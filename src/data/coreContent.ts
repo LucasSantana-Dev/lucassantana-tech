@@ -2,8 +2,8 @@ import type { NowItem, Profile, Project } from "../types/content";
 
 export const profile: Profile = {
   name: "Lucas Santana",
-  role: "Senior Software Engineer | Full Stack • AI-Native",
-  headlineShort: "Senior Full-Stack Engineer • Node.js • TypeScript • AWS • MCP",
+  role: "Senior Software Engineer | Backend • AI agent tooling and evals",
+  headlineShort: "Senior Software Engineer • Node.js • TypeScript • AWS • AI agent tooling and evals",
   summary:
     "Brazilian Senior Full-Stack Software Engineer and AI-native developer focused on cloud-native products, " +
     "agentic workflows, and platform architecture across Node.js, TypeScript, React/Next.js, AWS, and the MCP ecosystem.",
@@ -50,23 +50,23 @@ export const profile: Profile = {
 
 export const nowItems: NowItem[] = [
   {
-    title: "Forge Kit Toolkit",
+    title: "decision-critic",
     summary:
-      "Maintaining and extending a unified AI dev toolkit with portable rules, skills, " +
-      "and setup automation across Claude Code, Codex, Cursor, and Copilot.",
-    status: "Active",
+      "A reviewer agent with no tools, on purpose. Writing up the runtime probe that showed a " +
+      "Claude Code denylist leaves every MCP tool in place while an empty allow-list resolves to zero.",
+    status: "Shipping",
     links: [
-      { label: "Repository", url: "https://github.com/LucasSantana-Dev/forgekit" },
+      { label: "Repository", url: "https://github.com/LucasSantana-Dev/decision-critic" },
     ],
   },
   {
-    title: "Evidence-First RAG",
+    title: "hitgate",
     summary:
-      "Developing a portable hybrid retrieval engine with label-free evaluation, combining " +
-      "BM25, dense retrieval, and Reciprocal Rank Fusion.",
-    status: "Shipping",
+      "Portable hybrid retrieval with label-free evaluation, combining BM25, dense retrieval, " +
+      "and Reciprocal Rank Fusion, gated in CI.",
+    status: "Active",
     links: [
-      { label: "Repository", url: "https://github.com/LucasSantana-Dev/evidence-first-rag" },
+      { label: "Repository", url: "https://github.com/LucasSantana-Dev/hitgate" },
     ],
   },
   {
@@ -83,6 +83,29 @@ export const nowItems: NowItem[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    slug: "decision-critic",
+    name: "decision-critic",
+    organization: "LucasSantana-Dev",
+    category: "AI Agent Safety",
+    summary:
+      "A reviewer agent with no tools, on purpose. It argues against the decision you hand it and " +
+      "returns the claims you still need to check, so it cannot invent evidence by running something " +
+      "and misreading the output.",
+    stack: ["Node.js", "Claude Code", "JSON Schema"],
+    architectureNotes: [
+      "Role written once as a neutral spec (prompt, tool policy, output schema) and transpiled per host",
+      "Claude Code adapter emits an empty allow-list (tools: []) with a denylist hedge underneath",
+      "Runtime probe reads the CLI init event and stops before any model call, so it spends no tokens",
+    ],
+    impact: [
+      "Measured on Claude Code 2.1.292: a 17-tool denylist left all 91 MCP tools; tools: [] resolved to 0",
+      "Output carries claimsToVerify[] and verdictIsConditional so the caller checks what the critic cannot",
+    ],
+    repoUrl: "https://github.com/LucasSantana-Dev/decision-critic",
+    featured: true,
+    deepDive: false,
+  },
   {
     slug: "sharekit",
     name: "sharekit",
@@ -209,7 +232,7 @@ export const projects: Project[] = [
       "Shows practical automation engineering for business-facing workflows",
     ],
     repoUrl: "https://github.com/LucasSantana-Dev/linkedin-engage",
-    featured: true,
+    featured: false,
     deepDive: false,
   },
   {
