@@ -2,8 +2,8 @@ import type { NowItem, Profile, Project } from "../types/content";
 
 export const profile: Profile = {
   name: "Lucas Santana",
-  role: "Senior Software Engineer | Backend • AI agent tooling and evals",
-  headlineShort: "Senior Software Engineer • Node.js • TypeScript • AWS • AI agent tooling and evals",
+  role: "Senior Software Engineer | Full Stack (backend-focused) • AI agent tooling and evals",
+  headlineShort: "Senior Full-Stack Engineer • Node.js • TypeScript • AWS • AI agent tooling and evals",
   summary:
     "Brazilian Senior Full-Stack Software Engineer and AI-native developer focused on cloud-native products, " +
     "agentic workflows, and platform architecture across Node.js, TypeScript, React/Next.js, AWS, and the MCP ecosystem.",
