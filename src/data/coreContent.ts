@@ -40,9 +40,9 @@ export const profile: Profile = {
     },
     {
       label: "Retrieval quality",
-      value: 46,
+      value: 99,
       suffix: "% Hit@5",
-      context: "hitgate raised Hit@5 from 0.587 to 0.86 (open source, on PyPI)",
+      context: "hitgate hybrid retrieval on a 99-case benchmark (BM25 alone: 91%), open source on PyPI",
       source: "GitHub",
     },
   ],
