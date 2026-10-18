@@ -5,7 +5,7 @@ export const experiences: ExperienceItem[] = [
     company: "Thoughtworks",
     companyMark: "/images/company-logos/thoughtworks.svg",
     role: "Senior Software Consultant | Full Stack",
-    period: "Jan 2026 — Present",
+    period: "Jan 2026 to Present",
     bullets: [
       "Built reporting features with React and Node.js for a restaurant-technology client",
       "Contributed to a digital payments platform for a global cosmetics retailer",
@@ -16,7 +16,7 @@ export const experiences: ExperienceItem[] = [
     company: "CI&T",
     companyMark: "/images/company-logos/ciandt.svg",
     role: "Software Engineer | Full Stack",
-    period: "Jan 2024 — Dec 2025",
+    period: "Jan 2024 to Dec 2025",
     bullets: [
       "Built, maintained and deployed backend services with Node.js and AWS Lambda, through Jenkins pipelines, for a global consumer brand's mobile app and personalization platform",
       "Built frontend features with C# and Razor Pages for a US financial services company",
@@ -28,7 +28,7 @@ export const experiences: ExperienceItem[] = [
     company: "TRINUS CO.",
     companyMark: "/images/company-logos/trinus.svg",
     role: "Software Developer | Full Stack",
-    period: "Nov 2022 — Dec 2023",
+    period: "Nov 2022 to Dec 2023",
     bullets: [
       "Built an internal Kanban workspace with React and Node.js, adopted by 550+ employees",
       "Decomposed the platform from a monolith into TypeScript/Node.js microservices",
@@ -38,7 +38,7 @@ export const experiences: ExperienceItem[] = [
     company: "V.SANTANA",
     companyMark: "/images/company-logos/vsantana.png",
     role: "Software Developer | Full Stack",
-    period: "Dec 2021 — Nov 2022",
+    period: "Dec 2021 to Nov 2022",
     bullets: [
       "Built ERP and educational software solutions for local business clients",
       "Delivered institutional web systems with full-stack ownership",
@@ -567,7 +567,7 @@ export const volunteerItems: VolunteerItem[] = [
   {
     role: "Monitor",
     organization: "Imã Tech",
-    period: "2023 — 2024",
+    period: "2023 to 2024",
     summary:
       "Supported students with collaborative software projects and practical guidance " +
       "through full-stack delivery workflows.",
@@ -591,7 +591,7 @@ export const volunteerItems: VolunteerItem[] = [
   {
     role: "Development Sector Supervisor",
     organization: "Brazilian-Portuguese roleplay community",
-    period: "2021 — 2022",
+    period: "2021 to 2022",
     summary:
       "Led volunteer developers, coordinated technical decisions, and improved development " +
       "processes for a large community environment.",

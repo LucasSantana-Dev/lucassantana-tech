@@ -112,7 +112,7 @@ export const projects: Project[] = [
     organization: "LucasSantana-Dev",
     category: "AI Dev Tooling",
     summary:
-      "Share your entire AI coding setup with one command — publish a CLAUDE.md, skills, and a " +
+      "Share your AI coding setup with one command: publish a CLAUDE.md, skills, and a " +
       "file-based memory system as a GitHub repo, install it anywhere with npx. GitHub is the registry.",
     stack: ["TypeScript", "Node.js 20+", "npm", "node:test", "Prettier", "GitHub Actions"],
     architectureNotes: [
@@ -121,7 +121,7 @@ export const projects: Project[] = [
       "GitHub-backed discovery (sharekit search + web directory); OIDC-published to npm, no server",
     ],
     impact: [
-      "One-command install of a full Claude Code / Cursor workflow — rules, 65 skills, memory system",
+      "One-command install of a full Claude Code / Cursor workflow: rules, 65 skills, memory system",
       "Zero-setup file-based memory with measurable retrieval (memory-eval gate); portable, env-driven",
     ],
     repoUrl: "https://github.com/LucasSantana-Dev/sharekit",
@@ -134,17 +134,17 @@ export const projects: Project[] = [
     organization: "LucasSantana-Dev",
     category: "RAG / Retrieval Eval",
     summary:
-      "A label-free retrieval regression gate — catch when a change to your RAG index, retriever, or " +
+      "A label-free retrieval regression gate that catches when a change to your RAG index, retriever, or " +
       "chunking silently degrades recall, before it ships. Auto-mines query/doc pairs; no hand-labeling.",
     stack: ["Python", "PyPI", "pytest", "GitHub Actions"],
     architectureNotes: [
-      "Label-free: derives a golden set straight from the corpus — zero manual labeling",
+      "Label-free: derives a golden set straight from the corpus, with no manual labeling",
       "Freezes a Hit@K / MRR baseline; gates CI on regression beyond tolerance",
       "Ships as a PyPI package + CLI; reproducible, Ubuntu-frozen eval baseline",
     ],
     impact: [
-      "Turns silent retrieval rot into a CI gate teams can actually enforce",
-      "Honest by design — measures retrievability change, documents the label-free caveat",
+      "Turns silent retrieval rot into a CI gate teams can enforce",
+      "Measures retrievability change and documents the label-free caveat",
     ],
     repoUrl: "https://github.com/LucasSantana-Dev/hitgate",
     featured: true,
@@ -183,7 +183,7 @@ export const projects: Project[] = [
     stack: ["TypeScript", "React 19", "Express 5", "Prisma", "Redis", "Discord.js", "Docker"],
     architectureNotes: [
       "Monorepo split into shared, bot, backend, and frontend packages",
-      "Feature toggles and robust test suite across backend and frontend",
+      "Feature toggles and test suite across backend and frontend",
       "Production-focused CI and deployment hardening",
     ],
     impact: [
